@@ -20,28 +20,18 @@ body {
     width: auto;
     display: flex;
     justify-content: center;
-    background-image: url("background-logo-netflix.jpg");
+    background-image: linear-gradient(to bottom,rgba(4, 0, 7, 0.836),rgba(4, 0, 7, 0.5)), 
+        image-url("background-logo-netflix.jpg");
     background-size: cover;
     color:white;
     border-bottom: 8px solid #222;
+    
     .card2{
         background-color: black;
         padding: 100px, 100px, 100px, 100px;
         z-index: 2;
     }
-    
-    &::before {
-        content: "";
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        bottom: 0px;
-        left: 0px;
-        // background-color: rgba(4, 0, 7, 0.596);
-        background-image: linear-gradient(to bottom,rgba(4, 0, 7, 0.836),rgba(4, 0, 7, 0.5));
-        // background-image: linear-gradient(to top,rgb(4, 0, 7),rgba(4, 0, 7, 0.596));
 
-    }
 }
   
 
@@ -146,24 +136,10 @@ body {
     height: 1200px;
     display: flex;
     justify-content: center;
-    background-image: url("background-logo-netflix.jpg");
+    background-image: linear-gradient(to bottom,rgba(4, 0, 7, 0.5),rgba(4, 0, 7, 0.5)), image-url("background-logo-netflix.jpg");
     background-size: cover;
     color:white;
     // border-bottom: 8px solid #222;
-
-    
-    &::before {
-        content: "";
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        bottom: 0px;
-        left: 0px;
-        background-color: rgba(4, 0, 7, 0.596);
-        // background-image: linear-gradient(to bottom,rgba(4, 0, 7, 0.87),rgba(4, 0, 7, 0.692));
-        // background-image: linear-gradient(to top,rgb(4, 0, 7),rgba(4, 0, 7, 0.596));
-    }
-
     img{
         display: inline-block;
         position: absolute;
