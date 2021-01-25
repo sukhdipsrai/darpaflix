@@ -27,3 +27,4 @@
 /config/master.key
 /node_modules
 /tmp
+bundle.js*

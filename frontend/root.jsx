@@ -1,18 +1,12 @@
-import React from "react"
+import React from 'react';
+import { Provider } from 'react-redux';
+import { HashRouter } from 'react-router-dom';
+import App from './components/app';
 
-
-class Root extends React.Component {
-    constructor(props){
-        super(props)
-    }
-
-    render(){
-        return (
-            <h2>
-                This is the Darpaflix App.
-            </h2>
-        )
-    }
-}
-
-export default Root;
+export default ({store}) =>  (
+    <Provider store={store}>
+        <HashRouter>
+            <App/>
+        </HashRouter>
+    </Provider>
+);

@@ -1,0 +1,178 @@
+// Place all the styles related to the Session controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+  
+.landing-page { 
+    position: relative; 
+    height: 712px;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    background-image: url("background-logo-netflix.jpg");
+    background-size: cover;
+    color:white;
+    border-bottom: 8px solid #222;
+    .card2{
+        background-color: black;
+        padding: 100px, 100px, 100px, 100px;
+        z-index: 2;
+    }
+    
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        // background-color: rgba(4, 0, 7, 0.596);
+        background-image: linear-gradient(to bottom,rgba(4, 0, 7, 0.87),rgba(4, 0, 7, 0.692));
+        // background-image: linear-gradient(to top,rgb(4, 0, 7),rgba(4, 0, 7, 0.596));
+
+    }
+}
+  
+
+.landing-content{
+    align-items: initial;
+    z-index: 1;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    vertical-align: top;
+    img{
+        
+        float: left;
+        width: 125px;
+        height: 50px;
+        margin-top: 2%;
+        margin-left: 5%;;
+    }
+
+    button{
+        float: right;
+        background-color: #e50914;
+        padding: 7px 17px;
+        border-radius: 3px;
+        line-height: normal;
+        font-weight: 400;
+        font-size: 1rem;
+        border: 0;
+        color: white;
+        vertical-align: sub;
+        margin-right: 5%;
+        margin-top: 2.5%;
+    } 
+    a:hover{
+        cursor: pointer;
+    }
+}
+
+#sign-in-form{
+
+}
+
+
+#sign-in-box{
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+    justify-content: center;
+    position: relative;
+    margin-top: 100px;
+    height: 671px;
+    width: 450px;
+    background-color: rgba(4, 0, 7, 0.685);
+    z-index: 1;
+    h2{
+        font-size: 32px;
+        font-weight: 700;
+        margin-top: 60px;
+        font-family: Helvetica,Arial,sans-serif;
+        margin-bottom: 20px;
+    }
+    input{
+        background: #333;
+        border-radius: 4px;
+        border: 0;
+        color: #fff;
+        height: 50px;
+        line-height: 50px;
+        padding: 16px 20px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        width: 314px;
+    }
+    #form-submit:hover{
+        cursor: pointer;
+    }
+    #form-submit{
+        background-color: #e50914;
+        text-align: center;
+        display: table-cell;   
+        vertical-align: middle;
+        margin-top: 40px;
+        margin-bottom: 15px;
+    }
+}
+
+.card2{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+}
+
+.signin-page { 
+    position: relative; 
+    width: auto;
+    height: 1200px;
+    display: flex;
+    justify-content: center;
+    background-image: url("background-logo-netflix.jpg");
+    background-size: cover;
+    color:white;
+    // border-bottom: 8px solid #222;
+
+    
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        background-color: rgba(4, 0, 7, 0.596);
+        // background-image: linear-gradient(to bottom,rgba(4, 0, 7, 0.87),rgba(4, 0, 7, 0.692));
+        // background-image: linear-gradient(to top,rgb(4, 0, 7),rgba(4, 0, 7, 0.596));
+    }
+
+    img{
+        position: relative;
+        opacity: 1;
+        z-index: 2;
+        float: left;
+        display: inline;
+
+    }
+    a{
+        border:0;
+        display: 0;
+        padding:0;
+    }
+
+}
