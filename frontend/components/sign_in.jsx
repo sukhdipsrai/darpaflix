@@ -17,8 +17,7 @@ class SignIn extends React.Component{
     render(){
         return(
             <div className="signin-page">
-                <div></div>
-                {/* <Link to="/" > <img src={window.logoUrl}/></Link> */}
+                <Link to="/" > <img src={window.logoUrl}/></Link>
                 <div id="sign-in-box">
                     <br/>
                     <form 
