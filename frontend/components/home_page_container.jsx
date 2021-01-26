@@ -1,6 +1,6 @@
 import {connect} from 'react-redux'
 import HomePage from './home_page'
-import {logoutUser} from '../util/API'
+import {signOutUser} from '../actions/actions'
 const mstp = (state,ownProps)=>{
     return{
         user: state.session.currentUser,
@@ -10,7 +10,7 @@ const mstp = (state,ownProps)=>{
 
 const mdtp = dispatch=>{
     return{
-        logoutUser: (id) => dispatch(logoutUser(id))
+        signOutUser: (id) => dispatch(signOutUser(id))
     }
 }
 

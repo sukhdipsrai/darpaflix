@@ -7,12 +7,13 @@ class HomePage extends React.Component{
     }
 
     render(){
-        const {id, email} = this.props.user
+        const {id, email} = this.props.user;
 
         return(
             <div>
                 <h1> {id}</h1>
                 <h1>{email}</h1>
+                <button onClick={()=>this.props.signOutUser(id)}>logout</button>
             </div>
         )
     }
