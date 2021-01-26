@@ -15,8 +15,8 @@ class LandingPage extends React.Component {
 
     demoAuth() {
         const user={
-            email:"fred@doggo.com",
-            password:"password"
+            email:"jack",
+            password:"daniels"
         }
         this.props.signInUser(user).then(this.props.history.push("/browse"));
     }
