@@ -5,11 +5,12 @@ const _nullSession = {
     currentUser: null
   };
 
-const SessionReducer = (state = _nullSession, action)=> {
+export default (state = _nullSession, action)=> {
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_USER:
             const currentUser = action.user
+            console.log(currentUser);
             return Object.assign({}, { currentUser });
         case  REMOVE_USER:
             return _nullSession;
@@ -17,5 +18,3 @@ const SessionReducer = (state = _nullSession, action)=> {
             return state;
     }
 }
-
-export default SessionReducer;

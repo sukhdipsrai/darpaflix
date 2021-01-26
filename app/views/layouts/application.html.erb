@@ -7,9 +7,19 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    
     <script type="text/javascript">
       window.logoUrl = "<%= image_url('darpa-logo.png') %>";
     </script>
+        <% if current_user %>
+      <script>
+        window.currentUser = { 
+          "id": <%= current_user.id %>,
+          "email": "<%= current_user.email %>"
+          };
+      </script>
+          <% end %>
+
   </head>
 
   <body>

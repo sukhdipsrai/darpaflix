@@ -28,4 +28,4 @@ const Auth = ({ component: Component, path, loggedIn }) => (
 
 
 export const AuthRoute = withRouter(connect(mstp)(Auth));
-export const ProtectedRoute = withRouter(connect(mstp, undefined)(Protected));
+export const ProtectedRoute = withRouter(connect(mstp)(Protected));

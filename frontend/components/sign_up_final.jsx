@@ -1,6 +1,10 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import {Link, Redirect, withRouter} from 'react-router-dom'
 import { createNewUser } from '../actions/actions'
+import {connect} from 'react-redux'
+
+
+
 
 class SignUp extends React.Component{
     constructor(props){
@@ -8,20 +12,20 @@ class SignUp extends React.Component{
     }
 
     handleSubmit(){
-        createNewUser(this.state)
+        this.props.createNewUser(this.props.values).then(this.props.history.push('/browse'));
     }
 
     render(){
         const {step, email, password} = this.props.values;
-        console.log(this.props)
         return(
             <div className="signup-page">
                 <img src={window.logoUrl}/>
+                <Link to="/login"><button>Sign In</button></Link>
                 <div id="sign-up-box">
                     <br/>
                     <form 
                     id="sign-up-form"
-                    onSubmit={()=> this.handleSubmit()}
+                    onSubmit={ () => this.handleSubmit() }
                     >
                         <h2>Create a password to start your membership.</h2>
                         <h3>Just a few more steps and you're done!</h3>
@@ -29,8 +33,8 @@ class SignUp extends React.Component{
                         <label>
                             <input
                                 type="text"
-                                onChange={ ()=> this.props.update('email')}
-                                // placeholder="Email"
+                                onChange={this.props.update('email')}
+                                placeholder="Email"
                                 value={email}
                             />
                         </label>
@@ -38,7 +42,7 @@ class SignUp extends React.Component{
                         <label>
                             <input
                                 type="password"
-                                onChange={ () => this.props.update('password')}
+                                onChange={this.props.update('password')}
                                 placeholder="Password"
                             />
                         </label>
@@ -55,4 +59,17 @@ class SignUp extends React.Component{
     }
 }
 
-export default SignUp;
+
+const mstp = (state)=>{
+    return{
+
+    }
+}
+
+const mdtp = dispatch=>{
+    return{
+        createNewUser: user => dispatch(createNewUser(user))
+    }
+}
+
+export default withRouter(connect(mstp,mdtp)(SignUp));
