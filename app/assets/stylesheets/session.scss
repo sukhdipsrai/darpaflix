@@ -193,7 +193,7 @@ body {
     input:active, input:focus{
         outline: none;
     }
-    button{
+    #submit-button{
         background-color: #e50914;
         margin-top: 40px;
         margin-bottom: 20px;
@@ -219,6 +219,6 @@ body {
 button:active, button:focus{
     outline: none;
 }
-button:hover{
+#submit-button{
     cursor: pointer;
 }

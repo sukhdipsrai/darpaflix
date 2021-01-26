@@ -8,20 +8,24 @@ const mstp = (state, ownProps)=>{
     }
 }
 
-// const Auth = ({ component: Component, path, loggedIn }) => (
-//     <Route
-//       path={path}
-//       render={props => (
-//       loggedIn ? <Redirect to="/" /> : <Component {...props} />
-//       )}
-//     />
-//   );
+const Auth = ({ component: Component, path, loggedIn }) => (
+    <Route
+      path={path}
+      render={props => (
+      loggedIn ? <Redirect to="/browse" /> : <Component {...props} />
+      )}
+    />
+  );
   
-//   const Protected = ({ component: Component, path, loggedIn }) => (
-//     <Route
-//       path={path}
-//       render={props => (
-//       loggedIn ? <Component {...props} /> : <Redirect to="/signup" />
-//       )}
-//     />
-//   );
+  const Protected = ({ component: Component, path, loggedIn }) => (
+    <Route
+      path={path}
+      render={props => (
+      loggedIn ? <Component {...props} /> : <Redirect to="/login" />
+      )}
+    />
+  );
+
+
+export const AuthRoute = withRouter(connect(mstp)(Auth));
+export const ProtectedRoute = withRouter(connect(mstp, undefined)(Protected));
