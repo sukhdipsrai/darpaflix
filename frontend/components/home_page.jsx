@@ -1,5 +1,5 @@
 import React from 'react'
-
+import NavBarContainer from './videos/nav_bar_container'
 class HomePage extends React.Component{
     constructor(props){
         super(props);
@@ -10,10 +10,10 @@ class HomePage extends React.Component{
         const {id, email} = this.props.user;
 
         return(
-            <div>
+            <div className="home-page">
+                <NavBarContainer/>
                 <h1> {id}</h1>
                 <h1>{email}</h1>
-                <button onClick={()=>this.props.signOutUser(id)}>logout</button>
             </div>
         )
     }
