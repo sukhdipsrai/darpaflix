@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { Route } from 'react-router-dom';
 import LandingPage from './landing_page';
 import SignUp from './sign_up_final'
 
@@ -17,6 +19,13 @@ class UserForm extends React.Component {
         const step = this.state.step
         this.setState({
             step: step + 1
+        });
+    }
+
+    homePage(){
+        const step = this.state.step
+        this.setState({
+            step: 0
         });
     }
 
@@ -52,7 +61,10 @@ class UserForm extends React.Component {
                         nextStep={() => this.nextStep()}
                         update={(field) => this.update(field)}
                         values={values}
+                        homePage={()=>this.homePage()}
                     />)
+                    //         <Route exact path="/signup" component={SignUp}/>
+
             case 2:
                 return (
                     <h1>
@@ -79,4 +91,11 @@ class UserForm extends React.Component {
     }
 }
 
-export default UserForm;
+const mstp = (state,ownProps)=>{
+    return{}
+}
+
+const mdtp = dispatch =>{
+    return{}
+}
+export default connect(mstp,mdtp)(UserForm);

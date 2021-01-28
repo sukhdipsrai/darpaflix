@@ -4,9 +4,9 @@ import SignIn from './sign_in'
 
 const mstp = (state)=>{
     return{
-
+        error: state.errors.login
     }
-}
+} 
 
 const mdtp = dispatch=>{
     return{

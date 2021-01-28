@@ -8,17 +8,12 @@ class LandingPage extends React.Component {
         super(props)
     }
 
-    continue() {
-        console.log("step")
-        this.props.nextStep();
-    };
-
     demoAuth() {
         const user={
             email:"jack",
             password:"daniels"
         }
-        this.props.signInUser(user).then(this.props.history.push("/browse"));
+        this.props.signInUser(user)
     }
 
 
@@ -36,7 +31,6 @@ class LandingPage extends React.Component {
                             <h1>Unlimited movies, TV shows, and more.</h1>
                             <h3>Watch anywhere. Cancel anytime.</h3>
                             <h3>Ready to watch? Enter your email to create or restart your membership.</h3>
-                            {/* <button onClick={ () => this.continue() }>PRESS</button> */}
                             <form
                                 id="part1-signup"
                                 onSubmit={() => this.props.nextStep()}
@@ -53,7 +47,13 @@ class LandingPage extends React.Component {
                 </div>
 
                 <div className="card2">
-
+                    <ul>Skills
+                        <li>Ruby</li>
+                        <li>Rails</li>
+                        <li>JavaScript</li>
+                        <li>Postgres</li>
+                        <li>React/Redux</li>
+                    </ul>
                 </div>
 
             </div>
@@ -63,6 +63,7 @@ class LandingPage extends React.Component {
 
 const mstp = (state, ownProps) => {
     return {
+        currentUser: state.session.currentUser
     }
 }
 

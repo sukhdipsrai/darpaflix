@@ -2,6 +2,8 @@ import * as API from '../util/API'
 
 export const RECEIVE_USER = `RECEIVE_USER`;
 export const REMOVE_USER = 'REMOVE_USER';
+export const FAILED_AUTH = 'FAILED_AUTH'
+export const FAILED_ACCOUNT_CREATION = 'FAILED_ACCOUNT_CREATION'
 
 const signIn = (user)=>({
     type: RECEIVE_USER,
@@ -13,12 +15,22 @@ const signOut = (id)=>({
     id: id
 })
 
+const errorLogin = (error)=>({
+    type: FAILED_AUTH,
+    error: error
+})
+
+const errorSignup = (error)=>({
+    type: FAILED_ACCOUNT_CREATION,
+    error: error
+})
+
 export const createNewUser = user => dispatch =>{
-    return API.createUser(user).then( user => dispatch(signIn(user)))
+    return API.createUser(user).error((data)=>dispatch(errorSignup(data.responseText))).then( user => dispatch(signIn(user)))
 }
 
 export const signInUser = user => dispatch => {
-    return API.loginUser(user).then( user => dispatch(signIn(user)))
+    return API.loginUser(user).error((data)=>dispatch(errorLogin(data.responseText))).then( user => dispatch(signIn(user)));
 }
 
 export const signOutUser = id => dispatch => {

@@ -6,8 +6,8 @@ import UserForm from './user_form'
 import HomePageContainer from './home_page_container'
 export default () => (
         <div>
-            <Route exact path="/" component={UserForm}/>
-            <AuthRoute exact path="/login" component={SignInContainer}/>
+            <AuthRoute path="/" component={UserForm}/>
+            <AuthRoute path="/login" component={SignInContainer}/>
             <ProtectedRoute exact path="/browse" component={HomePageContainer} />
         </div>
 );

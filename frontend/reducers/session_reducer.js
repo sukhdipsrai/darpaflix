@@ -10,7 +10,6 @@ export default (state = _nullSession, action)=> {
     switch (action.type) {
         case RECEIVE_USER:
             const currentUser = action.user
-            console.log(currentUser);
             return Object.assign({}, { currentUser });
         case  REMOVE_USER:
             return _nullSession;

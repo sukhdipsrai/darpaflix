@@ -12,15 +12,18 @@ class SignUp extends React.Component{
     }
 
     handleSubmit(){
-        this.props.createNewUser(this.props.values).then(this.props.history.push('/browse'));
+        this.props.createNewUser(this.props.values)
+        if(this.error === null){
+            this.props.history.push('/browse')
+        }
     }
 
     render(){
         const {step, email, password} = this.props.values;
         return(
             <div className="signup-page">
-                <img src={window.logoUrl}/>
-                <Link to="/login"><button>Sign In</button></Link>
+                <img className="clickable" src={window.logoUrl} onClick={ () =>this.props.homePage()}   />
+                <Link to="/login"><button className="clickable">Sign In</button></Link>
                 <div id="sign-up-box">
                     <br/>
                     <form 
@@ -47,6 +50,7 @@ class SignUp extends React.Component{
                             />
                         </label>
                         <br/>
+                        <p>{this.props.error}</p>
                         <input
                         id="form-submit"
                         type="submit"
@@ -62,7 +66,7 @@ class SignUp extends React.Component{
 
 const mstp = (state)=>{
     return{
-
+        error: state.errors.signup
     }
 }
 

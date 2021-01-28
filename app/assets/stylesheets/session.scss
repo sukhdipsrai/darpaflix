@@ -25,13 +25,6 @@ body {
     background-size: cover;
     color:white;
     border-bottom: 8px solid #222;
-    
-    .card2{
-        background-color: black;
-        padding: 100px, 100px, 100px, 100px;
-        z-index: 2;
-    }
-
 }
   
 
@@ -123,17 +116,37 @@ body {
 }
 
 .card2{
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
     content: "";
     position: absolute;
-    height: 100%;
-    width: 100%;
-    background-color: black;
+    font-size: 13px;
+    color: #757575;
+    height: 200px;
+    width: 100%;     
+    padding-left: 50px;
+    padding-top: 25px;
+    background-color: rgb(0, 0, 0);
+    ul {
+        list-style-type: none;
+        font-weight: 700;
+        font-size: 15px;
+
+    }
+    li{
+        padding-top: 7px;
+        padding-left: 4px;
+        font-weight: 300;
+        font-size: 13px;
+
+    }
+ 
+
 }
 
 .signin-page { 
     position: relative; 
     width: auto;
-    height: 1200px;
+    height: 100vh;
     display: flex;
     justify-content: center;
     background-image: linear-gradient(to bottom,rgba(4, 0, 7, 0.5),rgba(4, 0, 7, 0.5)), image-url("background-logo-netflix.jpg");
@@ -300,6 +313,6 @@ body {
 button:active, button:focus{
     outline: none;
 }
-#submit-button{
+#submit-button, .clickable:hover  {
     cursor: pointer;
 }

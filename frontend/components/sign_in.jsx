@@ -7,7 +7,6 @@ class SignIn extends React.Component{
 
     handleSubmit(){
         this.props.signInUser(this.state)
-        // console.log("Trying to Login")
     }
 
     update(field){
@@ -41,6 +40,7 @@ class SignIn extends React.Component{
                             />
                         </label>
                         <br/>
+                        <p>{this.props.error}</p>
                         <input
                         id="form-submit"
                         type="submit"
