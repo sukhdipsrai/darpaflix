@@ -13,10 +13,10 @@ https://darpaflix.herokuapp.com/?#/
 
 ## Technologies Used
 
-..* Ruby on Rails
-..* Postgresql
-..* React.js
-..* Redux,js
-..* Javascript
-..* AWS Cloud Storage
+* Ruby on Rails
+* Postgresql
+* React.js
+* Redux,js
+* Javascript
+* AWS Cloud Storage
 
