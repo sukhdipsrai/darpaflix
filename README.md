@@ -1,24 +1,22 @@
-# README
+# Darpaflix
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This website application is designed for users to watch and enjoy content online.
 
-Things you may want to cover:
+https://darpaflix.herokuapp.com/?#/
 
-* Ruby version
+⋅⋅* User account creation and login 
+⋅⋅* Playing Movies or TV Shows (Coming Soon)
+⋅⋅* Genre Categories (Coming Soon)
+⋅⋅* Search Function (Coming Soon)
+⋅⋅* User Made List of Content (Coming Soon)
+⋅⋅* User Profiles for Each Account (Coming Soon)
 
-* System dependencies
+## Technologies Used
 
-* Configuration
+..* Ruby on Rails
+..* Postgresql
+..* React.js
+..* Redux,js
+..* Javascript
+..* AWS Cloud Storage
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
