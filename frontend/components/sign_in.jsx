@@ -1,16 +1,36 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
+import * as validator from '../util/validator'
 class SignIn extends React.Component{
     constructor(props){
         super(props);
+        super(props);
+        this.state = {
+            error:''
+        }
     }
 
     handleSubmit(){
-        this.props.signInUser(this.state)
+        this.props.clearLoginError();
+        const email = validator.notGarbage(this.state.email)
+        const pass = validator.notGarbage(this.state.password)
+        let str = ''
+        if(!(email && pass)){
+            str = "Check Email and/or Password"
+        }
+        else{
+            this.props.signInUser(this.state)
+
+        }
+        this.setState( {'error':str})
     }
 
     update(field){
         return e=> this.setState({ [field]: e.currentTarget.value})
+    }
+
+    componentWillUnmount(){
+        this.props.clearLoginError();
     }
 
     render(){
@@ -41,6 +61,7 @@ class SignIn extends React.Component{
                         </label>
                         <br/>
                         <p>{this.props.error}</p>
+                        <p>{this.state.error}</p>
                         <input
                         id="form-submit"
                         type="submit"

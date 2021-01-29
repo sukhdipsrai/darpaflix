@@ -1,5 +1,5 @@
 import {connect} from 'react-redux'
-import { signInUser } from '../actions/actions'
+import { signInUser, clearLoginError} from '../actions/actions'
 import SignIn from './sign_in'
 
 const mstp = (state)=>{
@@ -10,7 +10,8 @@ const mstp = (state)=>{
 
 const mdtp = dispatch=>{
     return{
-        signInUser: user => dispatch(signInUser(user))
+        signInUser: user => dispatch(signInUser(user)),
+        clearLoginError: ()=> dispatch(clearLoginError())
     }
 }
 
