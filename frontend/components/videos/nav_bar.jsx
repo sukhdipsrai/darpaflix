@@ -21,8 +21,6 @@ class NavBar extends React.Component {
                     <li>
                         <button onClick={() => this.props.signOutUser(id)}>logout</button>
                     </li>
-
-                    <li> Profiles </li>
                 </ul>
             </div>
         )
