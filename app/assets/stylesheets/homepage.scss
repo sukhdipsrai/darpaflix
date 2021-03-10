@@ -1,6 +1,13 @@
 .media-tile {
-  height: 300px;
-  width: 600px;
-  position: relative;
+  height: 150px;
+  width: 300px;
   background-color: brown;
+  transition: 0.3s;
+}
+.media-tile:hover {
+  background-color: burlywood;
+}
+
+.media-tile-container {
+  display: block;
 }

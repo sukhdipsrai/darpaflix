@@ -10,13 +10,16 @@ class HomePage extends React.Component{
     render(){
         const {id, email} = this.props.user;
         const elements = new Array(50).fill(0);
-        let homepageContent = elements.map( (ele)=>
-        {return (<MediaTile/>)})
-        debugger;
+        let homepageContent = elements.map( (ele,index)=>
+        {return (<MediaTile key={index} ></MediaTile>)})
+
         return(
             <div className="home-page">
                 <NavBarContainer/>
+                <div className="media-tile-container">
                 {homepageContent}
+                </div>
+
             </div>
         )
     }
