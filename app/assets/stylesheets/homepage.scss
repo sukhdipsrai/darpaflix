@@ -1,13 +1,18 @@
 .media-tile {
-  height: 150px;
-  width: 300px;
+  height: 8vw;
+  width: 16vw;
   background-color: brown;
   transition: 0.3s;
+  margin-bottom: 1vw;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  margin: 0.1vw;
+  border-radius: 3px;
 }
 .media-tile:hover {
   background-color: burlywood;
 }
 
 .media-tile-container {
-  display: block;
 }
