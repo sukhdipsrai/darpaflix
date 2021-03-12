@@ -10,15 +10,16 @@ class NavBar extends React.Component {
 
     render() {
         const {id, email} = this.props.user;
+        debugger;
         return (
-            <div>
+            <div className="navbar">
                 
-                <Link to="/" > <img src={window.logoUrl}/></Link>
+                <Link to="/browse" > <img src={window.logoUrl}/></Link>
                     <button> Home </button>
                     <button> Movies  </button>
                     <button> MyList </button>
                     <button> Search </button>
-                    <button onClick={() => this.props.signOutUser(id)}>logout</button>
+                    <button onClick={() => this.props.signOutUser(id)}>Logout</button>
             </div>
         )
     }

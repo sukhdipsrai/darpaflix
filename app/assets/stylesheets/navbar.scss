@@ -1,0 +1,17 @@
+.navbar {
+  background-color: black;
+  img {
+    width: 9vw;
+    height: 3vw;
+  }
+  button {
+    background-color: black;
+    border: 0;
+    box-shadow: none;
+    color: white;
+  }
+  button:hover {
+    color: gray;
+    cursor: pointer;
+  }
+}
