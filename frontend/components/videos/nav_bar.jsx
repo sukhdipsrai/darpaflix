@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 
 class NavBar extends React.Component {
@@ -12,7 +13,7 @@ class NavBar extends React.Component {
         return (
             <div>
                 <ul>
-                    <li> Netflix Logo </li>
+                <Link to="/" > <img src={window.logoUrl}/></Link>
                     <li> Home </li>
                     <li> Movies  </li>
                     <li> MyList </li>
