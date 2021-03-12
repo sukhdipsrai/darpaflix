@@ -10,9 +10,11 @@ class HomePage extends React.Component{
         }
         
     }
-    componentDidMount(){
-        this.state.test = API.testFetchPhoto();
-        debugger;
+    componentWillMount(){
+        this.state.test = API.testFetchPhoto().then(success => {
+            this.setState({test:success[0].photoUrl})
+            console.log(success);
+        });
     }
 
     render(){
@@ -26,7 +28,7 @@ class HomePage extends React.Component{
                 <NavBarContainer/>
                 <div className="media-tile-container">
                 {homepageContent}
-                {this.state.test}
+                <img src={this.state.test}></img>
                 </div>
 
             </div>
