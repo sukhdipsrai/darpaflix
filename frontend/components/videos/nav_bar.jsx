@@ -10,7 +10,6 @@ class NavBar extends React.Component {
 
     render() {
         const {id, email} = this.props.user;
-        debugger;
         return (
             <div className="navbar">
                 
