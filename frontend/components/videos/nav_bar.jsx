@@ -12,17 +12,13 @@ class NavBar extends React.Component {
         const {id, email} = this.props.user;
         return (
             <div>
-                <ul>
+                
                 <Link to="/" > <img src={window.logoUrl}/></Link>
-                    <li> Home </li>
-                    <li> Movies  </li>
-                    <li> MyList </li>
-                    <li> Search </li>
-
-                    <li>
-                        <button onClick={() => this.props.signOutUser(id)}>logout</button>
-                    </li>
-                </ul>
+                    <button> Home </button>
+                    <button> Movies  </button>
+                    <button> MyList </button>
+                    <button> Search </button>
+                    <button onClick={() => this.props.signOutUser(id)}>logout</button>
             </div>
         )
     }
