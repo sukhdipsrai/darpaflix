@@ -1,0 +1,2 @@
+class GenreMovieJoin < ApplicationRecord
+end
