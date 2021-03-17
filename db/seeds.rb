@@ -5,5 +5,24 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+Genre.dr
 User.create( email: "jack", password: "daniels")
+g1 = Genre.create(name: "Action")
+g2 = Genre.create(name: "Adventure")
+g3 = Genre.create(name: "Comic Book")
+g4 = Genre.create(name: "Thriller")
+g5 = Genre.create(name: "Superhero")
+
+
+picture = File.open('../data/BatmanBegins/BatmanBeginsImage.webp')
+trailer = File.open('../data/BatmanBegins/BatmanBeginsTrailer.mp4')
+media = trailer
+m1 = Movie.create(title: "Batman Begins", cast:"Christian Bale, Liam Neeson, Micheal Caine", director:"Christopher Nolan",summary:"After training with his mentor, Batman begins his fight to free crime-ridden Gotham City from corruption.", year: 2005, duration: 2.20)
+m1.genres.build(*g1)
+m1.genres.build(*g2,*g3,*g4,*g5)
+
+
+m1.picture.attach(io: picture, filename: 'BatmanBeginsImage.webp')
+m1.trailer.attach(io: trailer, filename: 'BatmanBeginsTrailer.mp4')
+m1.media.attach(io: trailer, filename: 'BatmanBeginsTrailer.mp4')
+
