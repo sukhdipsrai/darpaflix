@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     resources :users, only: [:create]
     resources :session, only: [:create, :destroy]
     resources :videos, only:[:index]
+    resources :movies, only:[:index]
+    resources :genres, only:[:index]
   end
   
 end
