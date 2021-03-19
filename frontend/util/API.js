@@ -24,6 +24,6 @@ export const logoutUser = (id) => {
 export const testFetchPhoto = () => {
   return $.ajax({
     method: "GET",
-    url: "api/videos",
+    url: "api/movies",
   });
 };

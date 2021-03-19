@@ -32,6 +32,6 @@ m1.movies_genres.create(genre: g5)
 
 
 m1.picture.attach(io: picture, filename: 'BatmanBeginsImage.webp')
-m1.trailer.attach(io: trailer, filename: 'BatmanBeginsTrailer.mp4')
-m1.media = m1.trailer
+m1.trailer.attach(io: trailer, filename: 'BatmanBeginsTrailer')
+m1.media = m1.trailer # does nothing, not holding actual media, for future use
 
