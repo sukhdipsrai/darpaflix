@@ -28,11 +28,12 @@ class HomePage extends React.Component {
         <NavBarContainer />
         <div className="media-tile-container">
           {homepageContent}
-        <img src={this.state.test.imageUrl}></img>
-          <video width="320" height="240" controls={true} autoPlay={true}>
-            <source src={this.state.test.mediaUrl} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+
+          <video
+            controls
+            src={this.state.test.trailerUrl}
+            type="video/mp4"
+          ></video>
         </div>
       </div>
     );
