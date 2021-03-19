@@ -1,4 +1,6 @@
-json.array! @movies do |video|
-    json.extract video, :id
-    json.photoUrl url_for(video.photo)
+json.array! @movies do |movie|
+    json.extract video, :id ,:title, :cast, :director, :summary, :year, :duration, :genres
+    json.imageUrl url_for(movie.picture)
+    json.trailerUrl url_for(movie.trailer)
+    json.mediaUrl url_for(movie.media)
 end
