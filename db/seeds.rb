@@ -11,6 +11,7 @@ MoviesGenre.delete_all()
 Movie.delete_all()
 Genre.delete_all()
 
+#  Make Genres
 g1 = Genre.create(name: "Action")
 g2 = Genre.create(name: "Adventure")
 g3 = Genre.create(name: "Comic Book")
@@ -28,8 +29,6 @@ m1.movies_genres.create(genre: g2)
 m1.movies_genres.create(genre: g3)
 m1.movies_genres.create(genre: g4)
 m1.movies_genres.create(genre: g5)
-
-
 
 
 # m1.picture.attach(io: picture, filename: 'BatmanBeginsImage.webp')
