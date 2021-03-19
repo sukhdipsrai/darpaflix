@@ -6,35 +6,30 @@ class HomePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      test: null,
+      mediaData: null,
     };
   }
   componentWillMount() {
     this.state.test = API.testFetchPhoto().then((success) => {
-      this.setState({ test: success[0] });
+      this.setState({ mediaData: success });
       console.log(success);
     });
   }
 
   render() {
     const { id, email } = this.props.user;
-    const elements = new Array(1).fill(0);
-    let homepageContent = elements.map((ele, index) => {
-      return <MediaTile key={index}></MediaTile>;
-    });
+    const elements = this.state.mediaData;
+    let homepageContent = null;
+    if (this.state.mediaData !== null) {
+      homepageContent = elements.map((ele, index) => {
+        return <MediaTile key={index} data={ele}></MediaTile>;
+      });
+    }
 
     return (
       <div className="home-page">
         <NavBarContainer />
-        <div className="media-tile-container">
-          {homepageContent}
-
-          <video
-            controls
-            src={this.state.test.trailerUrl}
-            type="video/mp4"
-          ></video>
-        </div>
+        <div className="media-tile-container">{homepageContent}</div>
       </div>
     );
   }

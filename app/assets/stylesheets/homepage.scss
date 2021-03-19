@@ -1,7 +1,7 @@
 .media-tile {
   height: 8vw;
   width: 16vw;
-  background-color: brown;
+  background-color: gray;
   transition: 0.3s;
   margin-bottom: 1vw;
   display: inline-block;
@@ -9,6 +9,15 @@
   *display: inline;
   margin: 0.1vw;
   border-radius: 3px;
+  video {
+    width: inherit;
+    height: inherit;
+  }
+  img {
+    width: inherit;
+    display: inherit;
+    border-radius: inherit;
+  }
 }
 .media-tile:hover {
   background-color: burlywood;
