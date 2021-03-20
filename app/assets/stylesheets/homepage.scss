@@ -1,7 +1,7 @@
 .media-tile {
   height: 8vw;
   width: 16vw;
-  background-color: gray;
+  background-color: black;
   transition: 0.3s;
   margin-bottom: 1vw;
   display: inline-block;
@@ -9,18 +9,22 @@
   *display: inline;
   margin: 0.1vw;
   border-radius: 3px;
+  transition: 0.3s;
+
   video {
     width: inherit;
-    height: inherit;
+    height: auto;
+    border-radius: inherit;
   }
   img {
     width: inherit;
-    display: inherit;
+    height: auto;
     border-radius: inherit;
   }
 }
-.media-tile:hover {
-  background-color: burlywood;
+.modal {
+  transform: scale(1.8);
+  z-index: 10;
 }
 
 .media-tile-container {
