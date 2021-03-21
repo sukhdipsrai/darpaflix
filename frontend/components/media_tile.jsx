@@ -13,7 +13,6 @@ class MediaTile extends React.Component {
   hoverTimer() {
     if (this.timer >= 600) {
       this.setState({ trailerMode: true });
-      document.getElementById(this.props.id).classList.add("modal");
       this.playVideoListner();
     } else if (this.mouseHover)
       setTimeout(() => {
@@ -27,7 +26,6 @@ class MediaTile extends React.Component {
       let video = document
         .getElementById(this.props.id)
         .getElementsByTagName("video")[0];
-      debugger;
       if (video !== null) {
         if (video.paused) video.play();
         if (video.muted) video.muted = false;
@@ -36,21 +34,41 @@ class MediaTile extends React.Component {
   }
 
   render() {
+    this.modalClass = "modal";
+    if (this.props.first) this.modalClass = "modal-first";
     let displayContent = <img src={this.props.data.imageUrl}></img>;
     if (this.state.trailerMode)
       displayContent = (
-        <video src={this.props.data.trailerUrl} muted type="video/mp4"></video>
+        <div>
+          <video
+            className="media-video"
+            src={this.props.data.trailerUrl}
+            muted
+            type="video/mp4"
+          ></video>
+          <div className="media-tile-button-container">
+            <button className="media-button" type="button">
+              &#9658;
+            </button>
+            <button className="media-button" type="button">
+              &#43;
+            </button>
+          </div>
+        </div>
       );
     return (
       <div
         id={this.props.id}
         className="media-tile"
         onMouseEnter={() => {
+          document.getElementById(this.props.id).classList.add(this.modalClass);
           this.mouseHover = true;
           this.hoverTimer();
         }}
         onMouseLeave={() => {
-          document.getElementById(this.props.id).classList.remove("modal");
+          document
+            .getElementById(this.props.id)
+            .classList.remove(this.modalClass);
           this.timer = 0;
           this.mouseHover = false;
           this.setState({ trailerMode: false });

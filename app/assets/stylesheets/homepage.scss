@@ -9,25 +9,58 @@
   *display: inline;
   margin: 0.1vw;
   border-radius: 3px;
-  transition: 0.3s;
-
-  video {
-    width: inherit;
+  transition: 0.5s;
+  .media-video {
+    width: 16vw;
     height: auto;
     border-radius: inherit;
+    transition: 0.5s;
   }
   img {
     width: inherit;
     height: auto;
     border-radius: inherit;
+    transition: 0.5s;
   }
 }
 .modal {
   transform: scale(1.8);
   z-index: 10;
+  box-shadow: gray;
+}
+.modal-first {
+  transform: scale(1.8) translateX(25%);
+  z-index: 2;
+  box-shadow: gray;
 }
 
 .media-tile-container {
   justify-content: center;
   // does not apply
+}
+
+.media-tile-button-container {
+  width: 16vw;
+  height: 5vw;
+  background-color: #141414;
+}
+
+.media-button {
+  background-color: gray;
+  color: white;
+  height: 2vw;
+  width: 2vw;
+  border: 2px white solid;
+  border-radius: 100%;
+  cursor: pointer;
+  text-align: center;
+  align-items: center;
+  opacity: 0.7;
+  transition: 0.5s;
+  margin: 0.2vw;
+  min-width: 25px;
+  min-height: 25px;
+}
+.media-button:hover {
+  opacity: 1;
 }
