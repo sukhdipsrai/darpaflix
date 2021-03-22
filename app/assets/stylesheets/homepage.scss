@@ -52,14 +52,14 @@
   width: 2vw;
   border: 2px white solid;
   border-radius: 100%;
+  padding: 5px;
   cursor: pointer;
   text-align: center;
   align-items: center;
   opacity: 0.7;
   transition: 0.5s;
   margin: 0.2vw;
-  min-width: 25px;
-  min-height: 25px;
+  font-size: 50%;
 }
 .media-button:hover {
   opacity: 1;
