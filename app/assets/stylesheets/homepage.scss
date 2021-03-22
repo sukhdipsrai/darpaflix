@@ -12,9 +12,12 @@
   .media-video {
     width: 16vw;
     height: auto;
+    border: none;
     border-top-left-radius: inherit;
     border-top-right-radius: inherit;
     transition: 0.5s;
+    margin: 0;
+    padding: 0;
   }
   img {
     width: inherit;
@@ -47,7 +50,10 @@
 .media-tile-button-container {
   width: 16vw;
   height: 5vw;
-  background-color: #141414;
+  // background-color: #141414;
+  background-color: lightblue;
+  margin: 0;
+  padding-top: 20px;
 }
 
 .media-button {
