@@ -22,28 +22,38 @@ class HomePage extends React.Component {
     let homepageContent = null;
     if (this.state.mediaData !== null) {
       homepageContent = elements.map((ele, index) => {
+        let first = false;
+        let last = false;
+        if ((index + 1) % 6 === 0) last = true;
+        if (index % 6 === 0) first = true;
         return (
-          <MediaTile key={index} data={ele} id={1} first={true}></MediaTile>
+          <MediaTile
+            key={index}
+            data={ele}
+            id={index}
+            first={first}
+            last={last}
+          ></MediaTile>
         );
       });
     }
     let homepageContent2 = null;
-    if (this.state.mediaData !== null) {
-      homepageContent2 = elements.map((ele, index) => {
-        return (
-          <MediaTile key={index} data={ele} first={false} id={2}></MediaTile>
-        );
-      });
-    }
+    // if (this.state.mediaData !== null) {
+    //   homepageContent2 = elements.map((ele, index) => {
+    //     return (
+    //       <MediaTile key={index} data={ele} first={false} id={2}></MediaTile>
+    //     );
+    //   });
+    // }
 
     let homepageContent3 = null;
-    if (this.state.mediaData !== null) {
-      homepageContent3 = elements.map((ele, index) => {
-        return (
-          <MediaTile key={index} data={ele} id={3} first={false}></MediaTile>
-        );
-      });
-    }
+    // if (this.state.mediaData !== null) {
+    //   homepageContent3 = elements.map((ele, index) => {
+    //     return (
+    //       <MediaTile key={index} data={ele} id={3} first={false}></MediaTile>
+    //     );
+    //   });
+    // }
 
     return (
       <div className="home-page">

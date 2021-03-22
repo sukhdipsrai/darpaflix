@@ -12,6 +12,7 @@ class MediaTile extends React.Component {
 
   hoverTimer() {
     if (this.timer >= 600) {
+      document.getElementById(this.props.id).classList.add(this.modalClass);
       this.setState({ trailerMode: true });
       this.playVideoListner();
     } else if (this.mouseHover)
@@ -36,13 +37,16 @@ class MediaTile extends React.Component {
   render() {
     this.modalClass = "modal";
     if (this.props.first) this.modalClass = "modal-first";
-    let displayContent = <img src={this.props.data.imageUrl}></img>;
+    else if (this.props.last) this.modalClass = "modal-last";
+    // let displayContent = <img src={this.props.data.imageUrl}></img>;
+    let displayContent = <img src={window.devImageUrl}></img>;
     if (this.state.trailerMode)
       displayContent = (
         <div>
           <video
             className="media-video"
-            src={this.props.data.trailerUrl}
+            // src={this.props.data.trailerUrl}
+            src={window.devVideoUrl}
             muted
             type="video/mp4"
           ></video>
@@ -61,7 +65,6 @@ class MediaTile extends React.Component {
         id={this.props.id}
         className="media-tile"
         onMouseEnter={() => {
-          document.getElementById(this.props.id).classList.add(this.modalClass);
           this.mouseHover = true;
           this.hoverTimer();
         }}

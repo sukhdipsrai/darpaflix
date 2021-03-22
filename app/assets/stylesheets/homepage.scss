@@ -33,6 +33,11 @@
   z-index: 2;
   box-shadow: gray;
 }
+.modal-last {
+  transform: scale(1.8) translateX(-25%);
+  z-index: 2;
+  box-shadow: gray;
+}
 
 .media-tile-container {
   justify-content: center;
