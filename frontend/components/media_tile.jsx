@@ -33,33 +33,48 @@ class MediaTile extends React.Component {
       } else this.playVideoListner();
     }, 100);
   }
-
+  superModal() {
+    document.getElementById(this.props.id).classList.remove(this.modalClass);
+    this.timer = 0;
+    this.mouseHover = false;
+    this.setState({ trailerMode: false });
+  }
   render() {
     this.modalClass = "modal";
     if (this.props.first) this.modalClass = "modal-first";
     else if (this.props.last) this.modalClass = "modal-last";
     // let displayContent = <img src={this.props.data.imageUrl}></img>;
     let displayContent = <img src={window.devImageUrl}></img>;
-    if (this.state.trailerMode)
+    let buttonContent = null;
+    if (this.state.trailerMode) {
       displayContent = (
-        <div>
-          <video
-            className="media-video"
-            // src={this.props.data.trailerUrl}
-            src={window.devVideoUrl}
-            muted
-            type="video/mp4"
-          ></video>
-          <div className="media-tile-button-container">
-            <button className="media-button" type="button">
-              &#9658;
-            </button>
-            <button className="media-button" type="button">
-              &#43;
-            </button>
-          </div>
+        <video
+          className="media-video"
+          // src={this.props.data.trailerUrl}
+          src={window.devVideoUrl}
+          muted
+          type="video/mp4"
+        ></video>
+      );
+      buttonContent = (
+        <div className="media-tile-button-container">
+          <button className="media-button" type="button">
+            &#9658;
+          </button>
+          <button className="media-button" type="button">
+            &#43;
+          </button>
+          <button
+            className="media-button"
+            onClick={() => {
+              this.superModal();
+            }}
+          >
+            ^
+          </button>
         </div>
       );
+    }
     return (
       <div
         id={this.props.id}
@@ -78,6 +93,8 @@ class MediaTile extends React.Component {
         }}
       >
         {displayContent}
+        {buttonContent}
+        {/* button content causes weird bulge issue */}
       </div>
     );
   }

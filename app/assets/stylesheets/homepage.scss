@@ -5,7 +5,6 @@
   transition: 0.3s;
   margin-bottom: 1vw;
   display: inline-block;
-  zoom: 1;
   *display: inline;
   margin: 0.1vw;
   border-radius: 3px;
@@ -13,7 +12,8 @@
   .media-video {
     width: 16vw;
     height: auto;
-    border-radius: inherit;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
     transition: 0.5s;
   }
   img {
