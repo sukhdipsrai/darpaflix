@@ -75,3 +75,25 @@
 .media-button:hover {
   opacity: 1;
 }
+
+.super-media-video {
+  width: 40vw;
+  height: auto;
+  z-index: 100;
+}
+.super-modal-detail {
+  background-color: lightblue;
+  width: 40vw;
+  z-index: 100;
+}
+.super-modal-background {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.55);
+  z-index: 99;
+}
+
+.super-modal {
+  display: block;
+  position: fixed;
+}
