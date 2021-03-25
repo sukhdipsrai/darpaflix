@@ -29,8 +29,12 @@ class MediaTile extends React.Component {
         .getElementById(this.props.id)
         .getElementsByTagName("video")[0];
       if (video !== null) {
-        if (video.paused) video.play();
-        if (video.muted) video.muted = false;
+        try {
+          if (video.paused) video.play();
+          if (video.muted) video.muted = false;
+        } catch (e) {
+          this.playVideoListner();
+        }
       } else this.playVideoListner();
     }, 100);
   }
@@ -49,8 +53,8 @@ class MediaTile extends React.Component {
     let superModal = null;
     let buttonContent = null;
     let videoContent = null;
-    let modalBack = null;
     let entireModal = null;
+
     if (this.state.trailerMode) {
       displayContent = (
         <video
@@ -86,12 +90,21 @@ class MediaTile extends React.Component {
           className="super-media-video"
           // src={this.props.data.trailerUrl}
           src={window.devVideoUrl}
-          muted
+          autoPlay
           type="video/mp4"
         ></video>
       );
       videoContent = (
         <div className="super-modal-detail">
+          <button
+            onClick={() => {
+              this.setState({ trailerMode: false, superModal: false });
+              document.getElementById("super-modal-background").style.display =
+                "none";
+            }}
+          >
+            {"X"}
+          </button>
           <p>{this.props.data.extract.title}</p>
           <p>{this.props.data.extract.director}</p>
           <p>{this.props.data.extract.cast}</p>
@@ -105,29 +118,34 @@ class MediaTile extends React.Component {
           {videoContent}
         </div>
       );
-      modalBack = <div className="super-modal-background"></div>;
+      document.getElementById("super-modal-background").style.display = "block";
     }
     return (
       <div
         id={this.props.id}
         className="media-tile"
         onMouseEnter={() => {
-          this.mouseHover = true;
-          this.hoverTimer();
+          if (!this.state.superModal) {
+            this.mouseHover = true;
+            this.hoverTimer();
+          }
         }}
         onMouseLeave={() => {
-          document
-            .getElementById(this.props.id)
-            .classList.remove(this.modalClass);
-          this.timer = 0;
-          this.mouseHover = false;
-          this.setState({ trailerMode: false });
+          if (!this.state.superModal) {
+            document
+              .getElementById(this.props.id)
+              .classList.remove(this.modalClass);
+            this.timer = 0;
+            this.mouseHover = false;
+            this.setState({ trailerMode: false });
+          }
         }}
       >
+        <div id="super-modal-background"></div>
+
         {displayContent}
         {buttonContent}
         {entireModal}
-        {modalBack}
         {/* button content causes weird bulge issue */}
       </div>
     );

@@ -24,8 +24,8 @@ class HomePage extends React.Component {
       homepageContent = elements.map((ele, index) => {
         let first = false;
         let last = false;
-        if ((index + 1) % 6 === 0) last = true;
-        if (index % 6 === 0) first = true;
+        if ((index + 1) % 5 === 0) last = true;
+        if (index % 5 === 0) first = true;
         return (
           <MediaTile
             key={index}

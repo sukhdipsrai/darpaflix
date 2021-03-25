@@ -1,16 +1,17 @@
 .media-tile {
-  height: 8vw;
-  width: 16vw;
+  width: 18vw;
+  height: 12vw;
   background-color: black;
   transition: 0.3s;
+  // display: inline-block;
+  // *display: inline;
+  margin-top: 1w;
   margin-bottom: 1vw;
-  display: inline-block;
-  *display: inline;
-  margin: 0.1vw;
   border-radius: 3px;
-  transition: 0.5s;
+  position: static;
+
   .media-video {
-    width: 16vw;
+    width: 18vw;
     height: auto;
     border: none;
     border-top-left-radius: inherit;
@@ -23,37 +24,42 @@
     width: inherit;
     height: auto;
     border-radius: inherit;
-    transition: 0.5s;
   }
 }
+
 .modal {
-  transform: scale(1.8);
-  z-index: 10;
+  transform: scale(1.5);
+  z-index: 2;
   box-shadow: gray;
 }
 .modal-first {
-  transform: scale(1.8) translateX(25%);
+  transform: scale(1.5) translateX(25%);
   z-index: 2;
   box-shadow: gray;
 }
 .modal-last {
-  transform: scale(1.8) translateX(-25%);
+  transform: scale(1.5) translateX(-25%);
   z-index: 2;
   box-shadow: gray;
 }
 
 .media-tile-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-auto-flow: row dense;
   justify-content: center;
   // does not apply
 }
 
 .media-tile-button-container {
-  width: 16vw;
+  width: 18vw;
   height: 5vw;
-  // background-color: #141414;
-  background-color: lightblue;
+  background-color: #141414;
+  // background-color: lightblue;
   margin: 0;
   padding-top: 20px;
+  transform: translateY(-10%);
+  position: fixed;
 }
 
 .media-button {
@@ -77,23 +83,34 @@
 }
 
 .super-media-video {
-  width: 40vw;
+  width: 60vw;
   height: auto;
-  z-index: 100;
 }
 .super-modal-detail {
-  background-color: lightblue;
-  width: 40vw;
-  z-index: 100;
+  background-color: #141414;
+  width: 60vw;
+  transform: translateY(-10%);
 }
-.super-modal-background {
-  height: 100%;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.55);
-  z-index: 99;
+#super-modal-background {
+  position: absolute; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.781); /* Black background with opacity */
+  z-index: 3; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: auto; /* Add a pointer on hover */
 }
 
 .super-modal {
   display: block;
-  position: fixed;
+  position: absolute;
+  width: 0%;
+  z-index: 5;
+  top: 10%;
+  left: 20%;
+  right: 20%;
 }
