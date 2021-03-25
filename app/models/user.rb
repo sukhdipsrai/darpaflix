@@ -7,6 +7,9 @@ class User < ApplicationRecord
     after_initialize :ensure_session_token
     attr_reader :password
 
+    has_many :my_lists
+    has_many :movies, through: :my_lists
+
     def password= (input_pass)
         @password = input_pass
         self.password_digest = BCrypt::Password.create(input_pass)
