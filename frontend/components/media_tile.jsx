@@ -49,13 +49,21 @@ class MediaTile extends React.Component {
 
   addToList() {
     let data = { id: this.props.userId, media_id: this.props.data.extract.id };
+    this.setState({ listed: true });
     API.addToList(data);
     // TODO: Add button styling to match
   }
 
-  removeFromeList() {}
+  removeFromList() {
+    let data = { id: this.props.userId, media_id: this.props.data.extract.id };
+    this.setState({ listed: true });
+    API.removeFromList(data);
+  }
 
-  listHandler() {}
+  listHandler() {
+    if (this.state.listed) this.addToList();
+    else this.removeFromList();
+  }
 
   render() {
     this.modalClass = "modal";
@@ -88,7 +96,7 @@ class MediaTile extends React.Component {
           <button
             className="media-button"
             type="button"
-            onClick={() => this.addToList()}
+            onClick={() => this.listHandler()}
           >
             &#43;
           </button>
