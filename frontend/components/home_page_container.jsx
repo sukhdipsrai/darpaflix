@@ -1,14 +1,18 @@
-import {connect} from 'react-redux'
-import HomePage from './home_page'
-const mstp = (state,ownProps)=>{
-    return{
-        user: state.session.currentUser
-    }
-}
+import { connect } from "react-redux";
+import HomePage from "./home_page";
+import * as ListAction from "../actions/user_list";
 
-const mdtp = dispatch=>{
-    return{
-    }
-}
+const mstp = (state, ownProps) => {
+  return {
+    user: state.session.currentUser,
+    list: state.list,
+  };
+};
 
-export default connect(mstp,mdtp)(HomePage);
+const mdtp = (dispatch) => {
+  return {
+    getUserList: (id) => dispatch(ListAction.getUserList(id)),
+  };
+};
+
+export default connect(mstp, mdtp)(HomePage);

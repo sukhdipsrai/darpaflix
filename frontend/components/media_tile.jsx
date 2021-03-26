@@ -1,5 +1,7 @@
 import React from "react";
 import * as API from "../util/API";
+import { connect } from "react-redux";
+import * as ListAction from "../actions/user_list";
 
 class MediaTile extends React.Component {
   constructor(props) {
@@ -26,19 +28,19 @@ class MediaTile extends React.Component {
   }
 
   playVideoListner() {
-    setTimeout(() => {
-      let video = document
-        .getElementById(this.props.id)
-        .getElementsByTagName("video")[0];
-      if (video !== null) {
-        try {
+    try {
+      setTimeout(() => {
+        let video = document
+          .getElementById(this.props.id)
+          .getElementsByTagName("video")[0];
+        if (video !== null) {
           if (video.paused) video.play();
           if (video.muted) video.muted = false;
-        } catch (e) {
-          this.playVideoListner();
-        }
-      } else this.playVideoListner();
-    }, 100);
+        } else this.playVideoListner();
+      }, 100);
+    } catch (e) {
+      this.playVideoListner();
+    }
   }
   superModal() {
     document.getElementById(this.props.id).classList.remove(this.modalClass);
@@ -56,12 +58,13 @@ class MediaTile extends React.Component {
 
   removeFromList() {
     let data = { id: this.props.userId, media_id: this.props.data.extract.id };
-    this.setState({ listed: true });
-    API.removeFromList(data);
+    this.setState({ listed: false });
+    this.props.removeUserListState(data);
+    // this.props.getUserList(this.props.userId);
   }
 
   listHandler() {
-    if (this.state.listed) this.addToList();
+    if (!this.state.listed) this.addToList();
     else this.removeFromList();
   }
 
@@ -180,4 +183,14 @@ class MediaTile extends React.Component {
   }
 }
 
-export default MediaTile;
+const mstp = (state, ownProps) => {
+  return {};
+};
+
+const mdtp = (dispatch) => {
+  return {
+    removeUserListState: (data) => dispatch(ListAction.removeUserList(data)),
+  };
+};
+
+export default connect(mstp, mdtp)(MediaTile);

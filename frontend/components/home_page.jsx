@@ -2,6 +2,7 @@ import React from "react";
 import NavBarContainer from "./videos/nav_bar_container";
 import MediaTile from "./media_tile";
 import * as API from "../util/API";
+
 class HomePage extends React.Component {
   constructor(props) {
     super(props);
@@ -9,16 +10,15 @@ class HomePage extends React.Component {
       mediaData: null,
     };
   }
-  componentWillMount() {
+
+  componentDidMount() {
+    this.props
+      .getUserList(this.props.user.id)
+      .then(() => console.log(this.props.list));
     this.state.test = API.testFetchPhoto().then((success) => {
       this.setState({ mediaData: success });
       console.log(success);
     });
-  }
-
-  componentDidMount() {
-    debugger;
-    API.getList(this.props.user.id).then((results) => console.log(results));
   }
 
   render() {

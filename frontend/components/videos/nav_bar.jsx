@@ -14,8 +14,8 @@ class NavBar extends React.Component {
           {" "}
           <img src={window.logoUrl} />
         </Link>
-        <button> Home </button>
-        <button> MyList </button>
+        <Link to="/browse"> Home </Link>
+        <Link to="myList"> MyList </Link>
         <button> Search </button>
         <button onClick={() => this.props.signOutUser(id)}>Logout</button>
       </div>

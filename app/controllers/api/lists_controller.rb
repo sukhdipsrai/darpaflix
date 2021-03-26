@@ -15,8 +15,12 @@ class Api::ListsController < ApplicationController
     end
 
     def destroy
-        @user = User.find(params[:id])
-
+        begin
+            User.find(params[:id]).my_lists.find_by(movie_id: media_params[:media_id]).delete()
+            render json: ["#{params[:id]}"], status: 200 
+        rescue 
+            render json: ['List Item Does Not Exist.'], status: 404 
+        end
     end
 
     def media_params
