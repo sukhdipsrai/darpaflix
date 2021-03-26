@@ -1,4 +1,5 @@
 import React from "react";
+import * as API from "../util/API";
 
 class MediaTile extends React.Component {
   constructor(props) {
@@ -6,6 +7,7 @@ class MediaTile extends React.Component {
     this.state = {
       trailerMode: false,
       superModal: false,
+      listed: this.props.listed,
     };
     this.timer = 0;
     this.mouseHover = false;
@@ -44,6 +46,17 @@ class MediaTile extends React.Component {
     this.mouseHover = false;
     this.setState({ trailerMode: false, superModal: true });
   }
+
+  addToList() {
+    let data = { id: this.props.userId, media_id: this.props.data.extract.id };
+    API.addToList(data);
+    // TODO: Add button styling to match
+  }
+
+  removeFromeList() {}
+
+  listHandler() {}
+
   render() {
     this.modalClass = "modal";
     if (this.props.first) this.modalClass = "modal-first";
@@ -67,12 +80,19 @@ class MediaTile extends React.Component {
       );
       buttonContent = (
         <div className="media-tile-button-container">
+          {/* play */}
           <button className="media-button" type="button">
             &#9658;
           </button>
-          <button className="media-button" type="button">
+          {/* add to list */}
+          <button
+            className="media-button"
+            type="button"
+            onClick={() => this.addToList()}
+          >
             &#43;
           </button>
+          {/* show super modal */}
           <button
             className="media-button"
             onClick={() => {

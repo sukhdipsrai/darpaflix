@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     resources :videos, only:[:index]
     resources :movies, only:[:index]
     resources :genres, only:[:index]
+    resources :lists, only:[:show, :create, :destroy]
   end
   
 end

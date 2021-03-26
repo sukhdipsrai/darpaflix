@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    helper_method :current_user, :logged_in?
+    helper_method :current_user, :logged_in? , :require_logged_in
 
     # protect_from_forgery with: :null_session
     # self.allow_forgery_protection = false
@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
     #   redirect_to user_url(current_user) if logged_in?
     # end
   
-    # def require_logged_in
-    #   redirect_to new_session_url unless logged_in?
-    # end
+    def require_logged_in
+      render json: {message: 'Logged Out!'} unless logged_in?
+    end
 end

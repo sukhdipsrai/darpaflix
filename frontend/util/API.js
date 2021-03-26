@@ -27,3 +27,26 @@ export const testFetchPhoto = () => {
     url: "api/movies",
   });
 };
+
+export const getList = (id) => {
+  return $.ajax({
+    method: "GET",
+    url: `api/lists/${id}`,
+  });
+};
+
+export const addToList = (data) => {
+  return $.ajax({
+    method: "POST",
+    url: `/api/lists`,
+    data: { data },
+  });
+};
+
+export const removeFromList = (data) => {
+  return $.ajax({
+    method: "DELETE",
+    url: `api/lists/${data.id}`,
+    data: { data },
+  });
+};

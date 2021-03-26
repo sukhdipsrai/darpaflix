@@ -5,8 +5,7 @@
   transition: 0.3s;
   // display: inline-block;
   // *display: inline;
-  margin-top: 1w;
-  margin-bottom: 1vw;
+
   border-radius: 3px;
   position: static;
 
@@ -57,7 +56,6 @@
   background-color: #141414;
   // background-color: lightblue;
   margin: 0;
-  padding-top: 20px;
   transform: translateY(-10%);
   position: fixed;
 }
@@ -90,6 +88,7 @@
   background-color: #141414;
   width: 60vw;
   transform: translateY(-10%);
+  font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 }
 #super-modal-background {
   position: absolute; /* Sit on top of the page content */

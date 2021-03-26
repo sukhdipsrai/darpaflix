@@ -16,6 +16,11 @@ class HomePage extends React.Component {
     });
   }
 
+  componentDidMount() {
+    debugger;
+    API.getList(this.props.user.id).then((results) => console.log(results));
+  }
+
   render() {
     const { id, email } = this.props.user;
     const elements = this.state.mediaData;
@@ -33,6 +38,8 @@ class HomePage extends React.Component {
             id={index}
             first={first}
             last={last}
+            userId={this.props.user.id}
+            listed={false}
           ></MediaTile>
         );
       });
