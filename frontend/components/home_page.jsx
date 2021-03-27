@@ -25,6 +25,7 @@ class HomePage extends React.Component {
     const { id, email } = this.props.user;
     const elements = this.state.mediaData;
     let homepageContent = null;
+    // TODO: GET LIST DATA AND CROSS REFERENCE THE LISTED
     if (this.state.mediaData !== null) {
       homepageContent = elements.map((ele, index) => {
         let first = false;

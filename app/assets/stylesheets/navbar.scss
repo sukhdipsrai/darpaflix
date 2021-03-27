@@ -1,8 +1,16 @@
 .navbar {
   background-color: black;
-  img {
+  align-items: center;
+  display: flex;
+  a img {
+    max-width: 150px;
+    max-height: 50px;
     width: 9vw;
     height: 3vw;
+    margin-left: 20%;
+    padding-right: 20%;
+    display: flex;
+    margin-right: none;
   }
   button {
     background-color: black;
@@ -10,8 +18,39 @@
     box-shadow: none;
     color: white;
   }
-  button:hover {
+  button:hover,
+  .navbar-links:hover {
     color: gray;
     cursor: pointer;
+  }
+  .navbar-links,
+  button {
+    margin-left: 2%;
+    text-decoration: none;
+    color: white;
+    font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .navbar-links {
+    font-size: 2vw;
+  }
+}
+
+@media screen and (max-width: 500) {
+  .navbar-links {
+    font-size: 7vw;
+  }
+}
+@media screen and (max-width: 300) {
+  .navbar-links {
+    font-size: 10vw;
+  }
+}
+
+@media screen and (max-width: 5000px) {
+  .navbar-links {
+    font-size: 16px;
   }
 }

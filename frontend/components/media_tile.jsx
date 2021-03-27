@@ -89,6 +89,8 @@ class MediaTile extends React.Component {
           type="video/mp4"
         ></video>
       );
+      let listButton = "+";
+      if (this.state.listed) listButton = "-";
       buttonContent = (
         <div className="media-tile-button-container">
           {/* play */}
@@ -101,7 +103,7 @@ class MediaTile extends React.Component {
             type="button"
             onClick={() => this.listHandler()}
           >
-            &#43;
+            {listButton}
           </button>
           {/* show super modal */}
           <button

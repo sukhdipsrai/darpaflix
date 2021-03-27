@@ -14,10 +14,21 @@ class NavBar extends React.Component {
           {" "}
           <img src={window.logoUrl} />
         </Link>
-        <Link to="/browse"> Home </Link>
-        <Link to="/myList"> My List </Link>
-        <button> Search </button>
-        <button onClick={() => this.props.signOutUser(id)}>Logout</button>
+        <Link className="navbar-links" to="/browse">
+          {" "}
+          Home{" "}
+        </Link>
+        <Link className="navbar-links" to="/myList">
+          {" "}
+          My List{" "}
+        </Link>
+        <button className="navbar-links"> Search </button>
+        <button
+          className="navbar-links"
+          onClick={() => this.props.signOutUser(id)}
+        >
+          Logout
+        </button>
       </div>
     );
   }
