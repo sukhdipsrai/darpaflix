@@ -8,13 +8,15 @@ class HomePage extends React.Component {
     super(props);
     this.state = {
       mediaData: null,
+      list: null,
     };
   }
 
   componentDidMount() {
-    this.props
-      .getUserList(this.props.user.id)
-      .then(() => console.log(this.props.list));
+    this.props.getUserList(this.props.user.id).then((success) => {
+      this.setState({ list: success.list });
+      console.log(success.list);
+    });
     this.state.test = API.testFetchPhoto().then((success) => {
       this.setState({ mediaData: success });
       console.log(success);
@@ -22,16 +24,26 @@ class HomePage extends React.Component {
   }
 
   render() {
+    let listIdMap = {};
+    try {
+      this.state.list.forEach((ele) => {
+        listIdMap[ele.extract.id] = true;
+      });
+    } catch (e) {
+      // console.log(e);
+    }
     const { id, email } = this.props.user;
     const elements = this.state.mediaData;
     let homepageContent = null;
-    // TODO: GET LIST DATA AND CROSS REFERENCE THE LISTED
     if (this.state.mediaData !== null) {
       homepageContent = elements.map((ele, index) => {
         let first = false;
         let last = false;
+        let listed = false;
+        if (ele.extract.id in listIdMap) listed = true;
         if ((index + 1) % 5 === 0) last = true;
         if (index % 5 === 0) first = true;
+
         return (
           <MediaTile
             key={index}
@@ -40,35 +52,16 @@ class HomePage extends React.Component {
             first={first}
             last={last}
             userId={this.props.user.id}
-            listed={false}
+            listed={listed}
           ></MediaTile>
         );
       });
     }
-    let homepageContent2 = null;
-    // if (this.state.mediaData !== null) {
-    //   homepageContent2 = elements.map((ele, index) => {
-    //     return (
-    //       <MediaTile key={index} data={ele} first={false} id={2}></MediaTile>
-    //     );
-    //   });
-    // }
-
-    let homepageContent3 = null;
-    // if (this.state.mediaData !== null) {
-    //   homepageContent3 = elements.map((ele, index) => {
-    //     return (
-    //       <MediaTile key={index} data={ele} id={3} first={false}></MediaTile>
-    //     );
-    //   });
-    // }
 
     return (
       <div className="home-page">
         <NavBarContainer />
-        <div className="media-tile-container">
-          {homepageContent} {homepageContent2} {homepageContent3}
-        </div>
+        <div className="media-tile-container">{homepageContent}</div>
       </div>
     );
   }

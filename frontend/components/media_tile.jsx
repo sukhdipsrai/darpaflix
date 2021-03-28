@@ -19,7 +19,8 @@ class MediaTile extends React.Component {
     if (this.timer >= 600) {
       document.getElementById(this.props.id).classList.add(this.modalClass);
       this.setState({ trailerMode: true, superModal: false });
-      this.playVideoListner();
+      //   this.playVideoListner();
+      // TODO: Remove in production
     } else if (this.mouseHover)
       setTimeout(() => {
         this.timer += 200;
@@ -53,7 +54,6 @@ class MediaTile extends React.Component {
     let data = { id: this.props.userId, media_id: this.props.data.extract.id };
     this.setState({ listed: true });
     API.addToList(data);
-    // TODO: Add button styling to match
   }
 
   removeFromList() {
@@ -78,42 +78,44 @@ class MediaTile extends React.Component {
     let buttonContent = null;
     let videoContent = null;
     let entireModal = null;
-
+    let listButton = "+";
+    if (this.state.listed) listButton = "-";
+    buttonContent = (
+      <div className="media-tile-button-container">
+        {/* play */}
+        <button className="media-button" type="button">
+          &#9658;
+        </button>
+        {/* add to list */}
+        <button
+          className="media-button"
+          type="button"
+          onClick={() => this.listHandler()}
+        >
+          {listButton}
+        </button>
+        {/* show super modal */}
+        <button
+          className="media-button"
+          onClick={() => {
+            this.superModal();
+          }}
+        >
+          ^
+        </button>
+      </div>
+    );
     if (this.state.trailerMode) {
       displayContent = (
-        <video
-          className="media-video"
-          // src={this.props.data.trailerUrl}
-          src={window.devVideoUrl}
-          muted
-          type="video/mp4"
-        ></video>
-      );
-      let listButton = "+";
-      if (this.state.listed) listButton = "-";
-      buttonContent = (
-        <div className="media-tile-button-container">
-          {/* play */}
-          <button className="media-button" type="button">
-            &#9658;
-          </button>
-          {/* add to list */}
-          <button
-            className="media-button"
-            type="button"
-            onClick={() => this.listHandler()}
-          >
-            {listButton}
-          </button>
-          {/* show super modal */}
-          <button
-            className="media-button"
-            onClick={() => {
-              this.superModal();
-            }}
-          >
-            ^
-          </button>
+        <div>
+          <video
+            className="media-video"
+            // src={this.props.data.trailerUrl}
+            src={window.devVideoUrl}
+            autoPlay
+            type="video/mp4"
+          ></video>
+          {buttonContent}
         </div>
       );
     }
@@ -129,15 +131,6 @@ class MediaTile extends React.Component {
       );
       videoContent = (
         <div className="super-modal-detail">
-          <button
-            onClick={() => {
-              this.setState({ trailerMode: false, superModal: false });
-              document.getElementById("super-modal-background").style.display =
-                "none";
-            }}
-          >
-            {"X"}
-          </button>
           <p>{this.props.data.extract.title}</p>
           <p>{this.props.data.extract.director}</p>
           <p>{this.props.data.extract.cast}</p>
@@ -147,6 +140,15 @@ class MediaTile extends React.Component {
       );
       entireModal = (
         <div className="super-modal">
+          <button
+            onClick={() => {
+              this.setState({ trailerMode: false, superModal: false });
+              document.getElementById("super-modal-background").style.display =
+                "none";
+            }}
+          >
+            {"X"}
+          </button>
           {superModal}
           {videoContent}
         </div>
@@ -177,7 +179,6 @@ class MediaTile extends React.Component {
         <div id="super-modal-background"></div>
 
         {displayContent}
-        {buttonContent}
         {entireModal}
         {/* button content causes weird bulge issue */}
       </div>
