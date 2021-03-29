@@ -2,15 +2,17 @@
   background-color: black;
   align-items: center;
   display: flex;
+  margin-bottom: 1%;
   a img {
     max-width: 150px;
     max-height: 50px;
+    min-width: 90px;
+    min-height: 30px;
     width: 9vw;
     height: 3vw;
     margin-left: 20%;
     padding-right: 20%;
     display: flex;
-    margin-right: none;
   }
   button {
     background-color: black;
@@ -29,6 +31,47 @@
     text-decoration: none;
     color: white;
     font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+  }
+  .left-nav {
+    display: flex;
+    width: 50vw;
+    align-items: center;
+  }
+  .right-nav {
+    display: flex;
+    position: absolute;
+    right: 5%;
+    align-items: center;
+
+    .search-icon {
+      width: 18px;
+      position: absolute;
+      left: 5%;
+      align-self: center;
+    }
+
+    .search {
+      align-self: center;
+      display: flex;
+      #search-bar {
+        align-self: center;
+
+        width: 0px;
+        height: 34px;
+        background-color: #000;
+        box-shadow: none;
+        color: #fff;
+        border: 1px solid transparent;
+        outline: none;
+        padding-left: 35px;
+        font-size: 16px;
+        transition: all 0.3s ease, background-position 1ms;
+        &.hidden {
+          width: 150px;
+          border-color: #fff;
+        }
+      }
+    }
   }
 }
 

@@ -20,7 +20,7 @@ class MediaTile extends React.Component {
       document.getElementById(this.props.id).classList.add(this.modalClass);
       this.setState({ trailerMode: true, superModal: false });
       //   this.playVideoListner();
-      // TODO: Remove in production
+      // TODO: Force User interaction after homepage launch
     } else if (this.mouseHover)
       setTimeout(() => {
         this.timer += 200;
@@ -153,6 +153,7 @@ class MediaTile extends React.Component {
       entireModal = (
         <div className="super-modal">
           <button
+            className="media-button super-modal-button"
             onClick={() => {
               this.setState({ trailerMode: false, superModal: false });
               document.getElementById(this.props.id).children[0].style.display =

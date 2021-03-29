@@ -13,8 +13,8 @@
     width: 18vw;
     height: auto;
     border: none;
-    border-top-left-radius: inherit;
-    border-top-right-radius: inherit;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
     transition: 0.5s;
     margin: 0;
     padding: 0;
@@ -68,7 +68,7 @@
   opacity: 0.7;
   transition: 0.5s;
   margin: 0.2vw;
-  font-size: 50%;
+  font-size: 60%;
 }
 .media-button:hover {
   opacity: 1;
@@ -77,6 +77,8 @@
 .super-media-video {
   width: 60vw;
   height: auto;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
 }
 .super-modal-detail {
   background-color: #141414;
@@ -101,9 +103,16 @@
 .super-modal {
   display: block;
   position: absolute;
-  width: 0%;
+  width: auto;
   z-index: 5;
   top: 10%;
   left: 20%;
   right: 20%;
+}
+
+.super-modal-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 5;
 }
