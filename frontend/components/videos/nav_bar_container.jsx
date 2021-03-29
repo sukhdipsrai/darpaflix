@@ -7,6 +7,7 @@ import { Link, withRouter } from "react-router-dom";
 const mstp = (state, ownProps) => {
   return {
     user: state.session.currentUser,
+    queryData: state.query,
   };
 };
 

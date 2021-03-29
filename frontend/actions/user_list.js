@@ -15,3 +15,9 @@ export const removeUserList = (data) => (dispatch) => {
     dispatch(getUserList(success));
   });
 };
+
+export const addUserList = (data) => (dispatch) => {
+  return API.addToList(data).then((success) => {
+    dispatch(getUserList(success));
+  });
+};

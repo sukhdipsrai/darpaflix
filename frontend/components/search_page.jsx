@@ -8,7 +8,6 @@ class SearchPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      mediaData: null,
       list: null,
     };
   }
@@ -17,7 +16,6 @@ class SearchPage extends React.Component {
       this.setState({ list: success.list });
       console.log(success.list);
     });
-    this.setState({ mediaData: this.props.queryData });
   }
 
   render() {
@@ -32,9 +30,9 @@ class SearchPage extends React.Component {
     let errorMsg = null;
     let searchContent = null;
     try {
-      const elements = this.state.mediaData;
+      const elements = this.props.queryData;
       let homepageContent = null;
-      if (this.state.mediaData !== null) {
+      if (this.props.queryData !== null) {
         searchContent = elements.map((ele, index) => {
           let first = false;
           let last = false;
@@ -58,7 +56,7 @@ class SearchPage extends React.Component {
       }
     } catch (error) {
       errorMsg = "There are no Results that match your Search.";
-      console.log(error);
+      // console.log(error);
     }
 
     return <div className="media-tile-container">{searchContent}</div>;

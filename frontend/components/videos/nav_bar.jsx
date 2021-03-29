@@ -20,7 +20,7 @@ class NavBar extends React.Component {
     // console.log(e.target.value);
     if (e.key === "Enter") {
       this.setState({ query: e.target.value });
-      this.props.updateQuery(e.target.value);
+      if (e.target.value.length > 0) this.props.updateQuery(e.target.value);
       console.log(e.target.value);
     }
   }
@@ -74,18 +74,22 @@ class NavBar extends React.Component {
         {displayContent}
       </div>
     );
-    debugger;
     let displayContent = null;
     let path = this.props.location.pathname;
 
-    if (this.state.query !== "")
+    if (this.state.query !== "") {
+      debugger;
+      let errMsg = null;
+      if (this.props.queryData[0] === "No Matches")
+        errMsg = <p>{"Use these links"}</p>;
       displayContent = (
         <div className="search-page">
           {navbarcontent}
+          {errMsg}
           <SearchPage query={this.state.query} />
         </div>
       );
-    else {
+    } else {
       if (path === "/browse")
         displayContent = (
           <div className="home-page">
@@ -97,6 +101,7 @@ class NavBar extends React.Component {
         displayContent = (
           <div className="mylist-page">
             {navbarcontent}
+            <h2>My List</h2>
             <MyListPage />
           </div>
         );

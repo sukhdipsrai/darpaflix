@@ -1,5 +1,5 @@
 import React from "react";
-import * as API from "../util/API";
+// import * as API from "../util/API";
 import { connect } from "react-redux";
 import * as ListAction from "../actions/user_list";
 
@@ -53,7 +53,8 @@ class MediaTile extends React.Component {
   addToList() {
     let data = { id: this.props.userId, media_id: this.props.data.extract.id };
     this.setState({ listed: true });
-    API.addToList(data);
+    // API.addToList(data);
+    this.props.addUserListState(data);
   }
 
   removeFromList() {
@@ -209,6 +210,7 @@ const mstp = (state, ownProps) => {
 const mdtp = (dispatch) => {
   return {
     removeUserListState: (data) => dispatch(ListAction.removeUserList(data)),
+    addUserListState: (data) => dispatch(ListAction.addUserList(data)),
   };
 };
 
