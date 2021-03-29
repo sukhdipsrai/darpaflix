@@ -7,6 +7,7 @@ export const FAILED_ACCOUNT_CREATION = "FAILED_ACCOUNT_CREATION";
 export const CLEAR_ACCOUNT_CREATION = "CLEAR_ACCOUNT_CREATION";
 export const CLEAR_AUTH = "CLEAR_AUTH";
 export const UPDATE_QUERY = "UPDATE_QUERY";
+export const TOGGLE_MUTE = "TOGGLE_MUTE";
 
 const signIn = (user) => ({
   type: RECEIVE_USER,
@@ -36,6 +37,10 @@ const clearLoginErrorAction = () => ({
   type: CLEAR_AUTH,
 });
 
+const toggleMute = () => ({
+  type: TOGGLE_MUTE,
+});
+
 export const createNewUser = (user) => (dispatch) => {
   return API.createUser(user)
     .error((data) => dispatch(errorSignup(data.responseText)))
@@ -58,4 +63,8 @@ export const clearLoginError = () => (dispatch) => {
 
 export const clearSignupError = () => (dispatch) => {
   return dispatch(clearSignupErrorAction());
+};
+
+export const toggleGlobalMute = () => (dispatch) => {
+  return dispatch(toggleMute());
 };

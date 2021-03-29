@@ -2,6 +2,7 @@ import React from "react";
 // import * as API from "../util/API";
 import { connect } from "react-redux";
 import * as ListAction from "../actions/user_list";
+import * as Actions from "../actions/actions";
 
 class MediaTile extends React.Component {
   constructor(props) {
@@ -73,6 +74,21 @@ class MediaTile extends React.Component {
     else this.removeFromList();
   }
 
+  muteHandler() {
+    let video = document
+      .getElementById(this.props.id)
+      .getElementsByTagName("video")[0];
+    video.muted = !video.muted;
+    this.props.toggleGlobalMute();
+  }
+  fullScreen() {
+    let video = document
+      .getElementById(this.props.id)
+      .getElementsByTagName("video")[0];
+    // video.requestFullscreen();
+    video.controls = true;
+  }
+
   render() {
     this.modalClass = "modal";
     if (this.props.first) this.modalClass = "modal-first";
@@ -88,7 +104,11 @@ class MediaTile extends React.Component {
     buttonContent = (
       <div className="media-tile-button-container">
         {/* play */}
-        <button className="media-button" type="button">
+        <button
+          className="media-button"
+          type="button"
+          onClick={() => this.fullScreen()}
+        >
           &#9658;
         </button>
         {/* add to list */}
@@ -108,6 +128,15 @@ class MediaTile extends React.Component {
         >
           ^
         </button>
+        <button
+          className="media-button"
+          type="button"
+          onClick={() => {
+            this.muteHandler();
+          }}
+        >
+          &#9732;
+        </button>
       </div>
     );
     if (this.state.trailerMode) {
@@ -119,6 +148,7 @@ class MediaTile extends React.Component {
             src={window.devVideoUrl}
             autoPlay
             type="video/mp4"
+            muted={this.props.muted}
           ></video>
           {buttonContent}
         </div>
@@ -131,13 +161,27 @@ class MediaTile extends React.Component {
           // src={this.props.data.trailerUrl}
           src={window.devVideoUrl}
           autoPlay
+          muted={this.props.muted}
           type="video/mp4"
         ></video>
       );
+      const {
+        title,
+        year,
+        summary,
+        cast,
+        director,
+        duration,
+        genres,
+      } = this.props.data.extract;
       videoContent = (
         <div className="super-modal-detail">
           {/* play */}
-          <button className="media-button" type="button">
+          <button
+            className="media-button"
+            type="button"
+            onClick={() => this.fullScreen()}
+          >
             &#9658;
           </button>
           {/* add to list */}
@@ -148,12 +192,35 @@ class MediaTile extends React.Component {
           >
             {listButton}
           </button>
-          <p>{this.props.data.extract.title}</p>
-          <p>{this.props.data.extract.director}</p>
-          <p>{this.props.data.extract.cast}</p>
-          <p>{this.props.data.extract.summary}</p>
-          <p>{this.props.data.extract.year}</p>
-          <p>{this.props.data.extract.genres.map((g) => g.name + ", ")}</p>
+          <button
+            className="media-button"
+            type="button"
+            onClick={() => {
+              this.muteHandler();
+            }}
+          >
+            &#9732;
+          </button>
+          <div className="details-left">
+            <p>
+              {title +
+                " (" +
+                year +
+                ") " +
+                `${Math.floor(duration % 10)}h ${Math.floor(
+                  (duration % 1) * 10
+                )}m`}{" "}
+            </p>
+            <p>{summary}</p>
+            <p></p>
+          </div>
+
+          <div className="details-right">
+            <p>{"Cast: " + cast}</p>
+
+            <p>{"Director: " + director}</p>
+            <p>{"Genres: " + genres.map((g) => g.name).join(" , ")}</p>
+          </div>
         </div>
       );
       entireModal = (
@@ -208,13 +275,16 @@ class MediaTile extends React.Component {
 }
 
 const mstp = (state, ownProps) => {
-  return {};
+  return {
+    muted: !state.audio,
+  };
 };
 
 const mdtp = (dispatch) => {
   return {
     removeUserListState: (data) => dispatch(ListAction.removeUserList(data)),
     addUserListState: (data) => dispatch(ListAction.addUserList(data)),
+    toggleGlobalMute: () => dispatch(Actions.toggleGlobalMute()),
   };
 };
 
