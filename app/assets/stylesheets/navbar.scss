@@ -76,6 +76,21 @@
   }
 }
 
+.search-links {
+  margin-left: 25px;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+  color: white;
+  button.premade-search {
+    background: none;
+    border: none;
+    color: white;
+  }
+  button.premade-search:hover {
+    color: red;
+    cursor: pointer;
+  }
+}
+
 @media screen and (max-width: 992px) {
   .navbar-links {
     font-size: 2vw;

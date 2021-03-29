@@ -25,6 +25,10 @@ class NavBar extends React.Component {
     }
   }
 
+  makeSearch(inputString) {
+    this.props.updateQuery(e.target.value);
+  }
+
   render() {
     const { id, email } = this.props.user;
 
@@ -78,10 +82,48 @@ class NavBar extends React.Component {
     let path = this.props.location.pathname;
 
     if (this.state.query !== "") {
-      debugger;
       let errMsg = null;
       if (this.props.queryData[0] === "No Matches")
-        errMsg = <p>{"Use these links"}</p>;
+        errMsg = (
+          <p className="search-links">
+            {"Explore Media Relatd to: "}
+            <button
+              onClick={() => {
+                this.makeSearch("crime");
+              }}
+              className="premade-search"
+            >
+              Crime
+            </button>{" "}
+            {" | "}
+            <button
+              onClick={() => {
+                this.makeSearch("action");
+              }}
+              className="premade-search"
+            >
+              Action
+            </button>
+            {" | "}
+            <button
+              onClick={() => {
+                this.makeSearch("drama");
+              }}
+              className="premade-search"
+            >
+              Drama
+            </button>
+            {" | "}
+            <button
+              onClick={() => {
+                this.makeSearch("mystery");
+              }}
+              className="premade-search"
+            >
+              Mystery
+            </button>
+          </p>
+        );
       displayContent = (
         <div className="search-page">
           {navbarcontent}
