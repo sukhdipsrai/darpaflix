@@ -131,6 +131,18 @@ class MediaTile extends React.Component {
       );
       videoContent = (
         <div className="super-modal-detail">
+          {/* play */}
+          <button className="media-button" type="button">
+            &#9658;
+          </button>
+          {/* add to list */}
+          <button
+            className="media-button"
+            type="button"
+            onClick={() => this.listHandler()}
+          >
+            {listButton}
+          </button>
           <p>{this.props.data.extract.title}</p>
           <p>{this.props.data.extract.director}</p>
           <p>{this.props.data.extract.cast}</p>
@@ -143,8 +155,9 @@ class MediaTile extends React.Component {
           <button
             onClick={() => {
               this.setState({ trailerMode: false, superModal: false });
-              document.getElementById("super-modal-background").style.display =
+              document.getElementById(this.props.id).children[0].style.display =
                 "none";
+              //   document.getElementById(this.props.id).style.display = "none";
             }}
           >
             {"X"}
@@ -153,7 +166,9 @@ class MediaTile extends React.Component {
           {videoContent}
         </div>
       );
-      document.getElementById("super-modal-background").style.display = "block";
+      debugger;
+      document.getElementById(this.props.id).children[0].style.display =
+        "block";
     }
     return (
       <div

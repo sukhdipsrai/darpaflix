@@ -28,18 +28,12 @@
 
 .modal {
   transform: scale(1.5);
-  z-index: 2;
-  box-shadow: gray;
 }
 .modal-first {
   transform: scale(1.5) translateX(25%);
-  z-index: 2;
-  box-shadow: gray;
 }
 .modal-last {
   transform: scale(1.5) translateX(-25%);
-  z-index: 2;
-  box-shadow: gray;
 }
 
 .media-tile-container {
