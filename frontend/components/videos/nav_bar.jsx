@@ -12,8 +12,14 @@ class NavBar extends React.Component {
     };
   }
 
-  handleSearchIcon() {
-    document.getElementById("search-bar").classList.toggle("hidden");
+  focusSearchIcon() {
+    let searchBar = document.getElementById("search-bar");
+    searchBar.classList.add("hidden");
+    searchBar.focus();
+  }
+  blurSearchIcon() {
+    let searchBar = document.getElementById("search-bar");
+    searchBar.classList.remove("hidden");
   }
 
   handleSearch(e) {
@@ -26,7 +32,11 @@ class NavBar extends React.Component {
   }
 
   makeSearch(inputString) {
-    this.props.updateQuery(e.target.value);
+    this.setState({ query: inputString });
+    this.props.updateQuery(inputString);
+  }
+  resetQuery() {
+    this.setState({ query: "" });
   }
 
   render() {
@@ -37,13 +47,21 @@ class NavBar extends React.Component {
         <div className="left-nav">
           <Link to="/browse">
             {" "}
-            <img src={window.logoUrl} />
+            <img src={window.logoUrl} onClick={() => this.resetQuery()} />
           </Link>
-          <Link className="navbar-links" to="/browse">
+          <Link
+            className="navbar-links"
+            to="/browse"
+            onClick={() => this.resetQuery()}
+          >
             {" "}
             Home{" "}
           </Link>{" "}
-          <Link className="navbar-links" to="/myList">
+          <Link
+            className="navbar-links"
+            to="/myList"
+            onClick={() => this.resetQuery()}
+          >
             {" "}
             My List{" "}
           </Link>
@@ -55,17 +73,17 @@ class NavBar extends React.Component {
               id="search-bar"
               type="text"
               placeholder="Genres"
+              autoComplete="off"
               onKeyUp={(e) => {
                 this.handleSearch(e);
               }}
+              onBlur={() => this.blurSearchIcon()}
             />
             <img
               className="search-icon"
               src="https://static.vecteezy.com/system/resources/previews/000/442/657/non_2x/vector-search-icon.jpg"
               alt=""
-              onClick={() => {
-                this.handleSearchIcon();
-              }}
+              onClick={() => this.focusSearchIcon()}
             />
           </div>
           <button
@@ -82,14 +100,14 @@ class NavBar extends React.Component {
     let path = this.props.location.pathname;
 
     if (this.state.query !== "") {
-      let errMsg = null;
+      let errMsg = <h2>{`Titles related to: ${this.state.query}`}</h2>;
       if (this.props.queryData[0] === "No Matches")
         errMsg = (
           <p className="search-links">
-            {"Explore Media Relatd to: "}
+            {"Explore Media Related to: "}
             <button
               onClick={() => {
-                this.makeSearch("crime");
+                this.makeSearch("Crime");
               }}
               className="premade-search"
             >
@@ -98,7 +116,7 @@ class NavBar extends React.Component {
             {" | "}
             <button
               onClick={() => {
-                this.makeSearch("action");
+                this.makeSearch("Action");
               }}
               className="premade-search"
             >
@@ -107,7 +125,7 @@ class NavBar extends React.Component {
             {" | "}
             <button
               onClick={() => {
-                this.makeSearch("drama");
+                this.makeSearch("Drama");
               }}
               className="premade-search"
             >
@@ -116,11 +134,11 @@ class NavBar extends React.Component {
             {" | "}
             <button
               onClick={() => {
-                this.makeSearch("mystery");
+                this.makeSearch("Thriller");
               }}
               className="premade-search"
             >
-              Mystery
+              Thriller
             </button>
           </p>
         );

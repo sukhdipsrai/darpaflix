@@ -17,6 +17,10 @@ class MediaTile extends React.Component {
 
   hoverTimer() {
     if (this.timer >= 600) {
+      try {
+        document.getElementById(this.props.id).classList.add(this.modalClass);
+        this.setState({ trailerMode: true, superModal: false });
+      } catch (error) {}
       document.getElementById(this.props.id).classList.add(this.modalClass);
       this.setState({ trailerMode: true, superModal: false });
       //   this.playVideoListner();
