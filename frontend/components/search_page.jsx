@@ -4,7 +4,6 @@ import NavBarContainer from "./videos/nav_bar_container";
 import MediaTile from "./media_tile";
 import * as ListAction from "../actions/user_list";
 import * as API from "../util/API";
-
 class SearchPage extends React.Component {
   constructor(props) {
     super(props);
@@ -13,17 +12,12 @@ class SearchPage extends React.Component {
       list: null,
     };
   }
-
   componentDidMount() {
     this.props.getUserList(this.props.user.id).then((success) => {
       this.setState({ list: success.list });
       console.log(success.list);
     });
-    API.getSearch(this.props.query).then((success) => {
-      this.setState({ mediaData: success });
-      console.log(success);
-    });
-    // TODO: call axios request
+    this.setState({ mediaData: this.props.queryData });
   }
 
   render() {
@@ -75,13 +69,13 @@ const mstp = (state, ownProps) => {
   return {
     user: state.session.currentUser,
     list: state.list,
+    queryData: state.query,
   };
 };
 
 const mdtp = (dispatch) => {
   return {
     getUserList: (id) => dispatch(ListAction.getUserList(id)),
-    // TODO: query axios request
   };
 };
 

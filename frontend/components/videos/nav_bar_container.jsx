@@ -1,6 +1,8 @@
 import { connect } from "react-redux";
 import NavBar from "./nav_bar";
 import { signOutUser } from "../../actions/actions";
+import * as QueryAction from "../../actions/search";
+import { Link, withRouter } from "react-router-dom";
 
 const mstp = (state, ownProps) => {
   return {
@@ -11,7 +13,8 @@ const mstp = (state, ownProps) => {
 const mdtp = (dispatch) => {
   return {
     signOutUser: (id) => dispatch(signOutUser(id)),
+    updateQuery: (data) => dispatch(QueryAction.updateQuery(data)),
   };
 };
 
-export default connect(mstp, mdtp)(NavBar);
+export default withRouter(connect(mstp, mdtp)(NavBar));

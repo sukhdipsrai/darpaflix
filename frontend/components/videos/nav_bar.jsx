@@ -20,7 +20,8 @@ class NavBar extends React.Component {
     // console.log(e.target.value);
     if (e.key === "Enter") {
       this.setState({ query: e.target.value });
-      console.log(this.state.query);
+      this.props.updateQuery(e.target.value);
+      console.log(e.target.value);
     }
   }
 
@@ -104,5 +105,4 @@ class NavBar extends React.Component {
     return displayContent;
   }
 }
-
-export default withRouter(NavBar);
+export default NavBar;

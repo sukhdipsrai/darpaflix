@@ -6,12 +6,12 @@ class Api::SearchController < ApplicationController
         query = sanitize( params[:id] )
         genres = Genre.all.select("name").map{|ele| ele.name}      
         match = genres.select{ |g| g.downcase.include?(query)}
+        
         matches_movies = []
         Movie.all.each do |movie|
             movie_genres = movie.genres
             movie_genres.each do |genre|
-                
-                if(genres.include?(genre.name))
+                if(match.include?(genre.name))
                     matches_movies << movie;
                     break;
                 end

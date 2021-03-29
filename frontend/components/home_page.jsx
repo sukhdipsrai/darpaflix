@@ -13,7 +13,6 @@ class HomePage extends React.Component {
   }
 
   componentDidMount() {
-    debugger;
     this.props.getUserList(this.props.user.id).then((success) => {
       this.setState({ list: success.list });
       console.log(success.list);
