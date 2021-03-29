@@ -37,12 +37,7 @@ class MyListPage extends React.Component {
       });
     } catch (e) {}
 
-    return (
-      <div className="mylist-page">
-        <NavBarContainer />
-        <div className="media-tile-container">{myListContent}</div>
-      </div>
-    );
+    return <div className="media-tile-container">{myListContent}</div>;
   }
 }
 

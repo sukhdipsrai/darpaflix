@@ -148,6 +148,7 @@ class MediaTile extends React.Component {
           <p>{this.props.data.extract.cast}</p>
           <p>{this.props.data.extract.summary}</p>
           <p>{this.props.data.extract.year}</p>
+          <p>{this.props.data.extract.genres.map((g) => g.name + ", ")}</p>
         </div>
       );
       entireModal = (
@@ -167,7 +168,6 @@ class MediaTile extends React.Component {
           {videoContent}
         </div>
       );
-      debugger;
       document.getElementById(this.props.id).children[0].style.display =
         "block";
     }

@@ -1,9 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import HomePageContainer from "../home_page_container";
+import MyListPage from "../mylist_page";
+import SearchPage from "../search_page";
 
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      query: "",
+    };
   }
 
   handleSearchIcon() {
@@ -11,12 +17,17 @@ class NavBar extends React.Component {
   }
 
   handleSearch(e) {
-    console.log(e.target.value);
+    // console.log(e.target.value);
+    if (e.key === "Enter") {
+      this.setState({ query: e.target.value });
+      console.log(this.state.query);
+    }
   }
 
   render() {
     const { id, email } = this.props.user;
-    return (
+
+    let navbarcontent = (
       <div className="navbar">
         <div className="left-nav">
           <Link to="/browse">
@@ -39,7 +50,7 @@ class NavBar extends React.Component {
               id="search-bar"
               type="text"
               placeholder="Genres"
-              onChange={(e) => {
+              onKeyUp={(e) => {
                 this.handleSearch(e);
               }}
             />
@@ -59,9 +70,39 @@ class NavBar extends React.Component {
             Logout
           </button>
         </div>
+        {displayContent}
       </div>
     );
+    debugger;
+    let displayContent = null;
+    let path = this.props.location.pathname;
+
+    if (this.state.query !== "")
+      displayContent = (
+        <div className="search-page">
+          {navbarcontent}
+          <SearchPage query={this.state.query} />
+        </div>
+      );
+    else {
+      if (path === "/browse")
+        displayContent = (
+          <div className="home-page">
+            {navbarcontent}
+            <HomePageContainer />
+          </div>
+        );
+      else if (path === "/myList")
+        displayContent = (
+          <div className="mylist-page">
+            {navbarcontent}
+            <MyListPage />
+          </div>
+        );
+    }
+
+    return displayContent;
   }
 }
 
-export default NavBar;
+export default withRouter(NavBar);

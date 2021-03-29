@@ -13,11 +13,12 @@ class HomePage extends React.Component {
   }
 
   componentDidMount() {
+    debugger;
     this.props.getUserList(this.props.user.id).then((success) => {
       this.setState({ list: success.list });
       console.log(success.list);
     });
-    this.state.test = API.testFetchPhoto().then((success) => {
+    API.testFetchPhoto().then((success) => {
       this.setState({ mediaData: success });
       console.log(success);
     });
@@ -32,7 +33,7 @@ class HomePage extends React.Component {
     } catch (e) {
       // console.log(e);
     }
-    const { id, email } = this.props.user;
+    // const { id, email } = this.props.user;
     const elements = this.state.mediaData;
     let homepageContent = null;
     if (this.state.mediaData !== null) {
@@ -58,12 +59,7 @@ class HomePage extends React.Component {
       });
     }
 
-    return (
-      <div className="home-page">
-        <NavBarContainer />
-        <div className="media-tile-container">{homepageContent}</div>
-      </div>
-    );
+    return <div className="media-tile-container">{homepageContent}</div>;
   }
 }
 

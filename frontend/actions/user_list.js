@@ -12,7 +12,6 @@ export const getUserList = (id) => (dispatch) => {
 
 export const removeUserList = (data) => (dispatch) => {
   return API.removeFromList(data).then((success) => {
-    debugger;
     dispatch(getUserList(success));
   });
 };
