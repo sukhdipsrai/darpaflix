@@ -89,26 +89,6 @@ g10 = Genre.find_or_create_by(name: "Crime")
 #
 
 
-## Peppermint
-    m12 = Movie.find_or_create_by(title: "Peppermint", cast:"Jennifer Garner, John Gallagher Jr., John Ortiz", director:"Pierre Morel",summary:"Five years after her husband and daughter are killed in a senseless act of violence, a woman comes back from self-imposed exile to seek revenge against those responsible and the system that let them go free.", year: 2018, duration: 1.41)
-    
-    m12.movies_genres.find_or_create_by(genre: g1)
-    m12.movies_genres.find_or_create_by(genre: g6)
-    m12.movies_genres.find_or_create_by(genre: g4)
-
-    if( !m12.picture.attached? && !m12.trailer.attached?)
-        picture = open('https://darpaflix-pro.s3.us-east-2.amazonaws.com/PeppermintImage.webp')
-        trailer = open('https://darpaflix-pro.s3.us-east-2.amazonaws.com/PeppermintTrailer.mp4')
-        media = trailer
-        m12.picture.attach(io: picture, filename: 'PeppermintImage.webp')
-        m12.trailer.attach(io: trailer, filename: 'PeppermintTrailer.mp4')
-        m12.media = m12.trailer # does nothing, not holding actual media, for future use
-    end
-#
-#
-#
-
-
 ## Rango
     m4 = Movie.find_or_create_by(title: "Rango", cast:"Johnny Depp, Isla Fisher, Timothy Olyphant", director:"Gore Verbinski",summary:"Rango is an ordinary chameleon who accidentally winds up in the town of Dirt, a lawless outpost in the Wild West in desperate need of a new sheriff.", year: 2011, duration: 1.47)
   
@@ -136,7 +116,7 @@ g10 = Genre.find_or_create_by(name: "Crime")
     m5.movies_genres.find_or_create_by(genre: g2)
     m5.movies_genres.find_or_create_by(genre: g6)
    
-    if( !m1.picture.attached? && !m1.trailer.attached?)
+    if( !m5.picture.attached? && !m5.trailer.attached?)
         picture = open('https://darpaflix-pro.s3.us-east-2.amazonaws.com/ShadowImage.webp')
         trailer = open('https://darpaflix-pro.s3.us-east-2.amazonaws.com/ShadowTrailer.mp4')
         media = trailer
@@ -195,7 +175,7 @@ g10 = Genre.find_or_create_by(name: "Crime")
     m8.movies_genres.find_or_create_by(genre: g10)
     m8.movies_genres.find_or_create_by(genre: g6)
    
-    if( !m1.picture.attached? && !m1.trailer.attached?)
+    if( !m8.picture.attached? && !m8.trailer.attached?)
         picture = open('https://darpaflix-pro.s3.us-east-2.amazonaws.com/TheDarkKnightImage.jpg')
         trailer = open('https://darpaflix-pro.s3.us-east-2.amazonaws.com/TheDarkKnightTrailer.mp4')
         media = trailer
@@ -263,6 +243,26 @@ g10 = Genre.find_or_create_by(name: "Crime")
         m11.trailer.attach(io: trailer, filename: 'WarDogsTrailer.mp4')
         m11.media = m11.trailer # does nothing, not holding actual media, for future use
     end
+#
+#
+#
+
+
+## Peppermint
+m12 = Movie.find_or_create_by(title: "Peppermint", cast:"Jennifer Garner, John Gallagher Jr., John Ortiz", director:"Pierre Morel",summary:"Five years after her husband and daughter are killed in a senseless act of violence, a woman comes back from self-imposed exile to seek revenge against those responsible and the system that let them go free.", year: 2018, duration: 1.41)
+    
+m12.movies_genres.find_or_create_by(genre: g1)
+m12.movies_genres.find_or_create_by(genre: g6)
+m12.movies_genres.find_or_create_by(genre: g4)
+
+if( !m12.picture.attached? && !m12.trailer.attached?)
+    picture = open('https://darpaflix-pro.s3.us-east-2.amazonaws.com/PeppermintImage.webp')
+    trailer = open('https://darpaflix-pro.s3.us-east-2.amazonaws.com/PeppermintTrailer.mp4')
+    media = trailer
+    m12.picture.attach(io: picture, filename: 'PeppermintImage.webp')
+    m12.trailer.attach(io: trailer, filename: 'PeppermintTrailer.mp4')
+    m12.media = m12.trailer # does nothing, not holding actual media, for future use
+end
 #
 #
 #
