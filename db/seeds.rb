@@ -29,7 +29,7 @@ g10 = Genre.find_or_create_by(name: "Crime")
 
 ## BatmanBegins
     m1 = Movie.find_or_create_by(title: "Batman Begins", cast:"Christian Bale, Liam Neeson, Micheal Caine", director:"Christopher Nolan",summary:"After training with his mentor, Batman begins his fight to free crime-ridden Gotham City from corruption.", year: 2005, duration: 2.20)
-
+    m1.save()
     m1.movies_genres.find_or_create_by(genre: g1)
     m1.movies_genres.find_or_create_by(genre: g2)
     m1.movies_genres.find_or_create_by(genre: g3)
@@ -51,7 +51,7 @@ g10 = Genre.find_or_create_by(name: "Crime")
 
 ## FreeStateOfJones
     m2 = Movie.find_or_create_by(title: "Free State of Jones", cast:"Matthew McConaughey, Gugu Mbatha-Raw, Mahershala Ali", director:"Gary Ross",summary:"A disillusioned Confederate army deserter returns to Mississippi and leads a militia of fellow deserters and women in an uprising against the corrupt local Confederate government.", year: 2016, duration: 2.20)
-
+    m2.save()
     m2.movies_genres.find_or_create_by(genre: g1)
     m2.movies_genres.find_or_create_by(genre: g5)
     m2.movies_genres.find_or_create_by(genre: g6)
@@ -71,7 +71,7 @@ g10 = Genre.find_or_create_by(name: "Crime")
 
 ## Mank
     m3 = Movie.find_or_create_by(title: "Mank", cast:"Gary Oldman, Amanda Seyfried, Lily Collins", director:"David Fincher",summary:"1930's Hollywood is reevaluated through the eyes of scathing social critic and alcoholic screenwriter Herman J. Mankiewicz as he races to finish the screenplay of Citizen Kane (1941).", year: 2020, duration: 2.11)
-    
+    m3.save()
     m3.movies_genres.find_or_create_by(genre: g5)
     m3.movies_genres.find_or_create_by(genre: g7)
     m3.movies_genres.find_or_create_by(genre: g6)
@@ -91,7 +91,7 @@ g10 = Genre.find_or_create_by(name: "Crime")
 
 ## Rango
     m4 = Movie.find_or_create_by(title: "Rango", cast:"Johnny Depp, Isla Fisher, Timothy Olyphant", director:"Gore Verbinski",summary:"Rango is an ordinary chameleon who accidentally winds up in the town of Dirt, a lawless outpost in the Wild West in desperate need of a new sheriff.", year: 2011, duration: 1.47)
-  
+    m4.save()
     m4.movies_genres.find_or_create_by(genre: g9)
     m4.movies_genres.find_or_create_by(genre: g2)
     m4.movies_genres.find_or_create_by(genre: g7)
@@ -111,7 +111,7 @@ g10 = Genre.find_or_create_by(name: "Crime")
 
 ## Shadow
     m5 = Movie.find_or_create_by(title: "Shadow", cast:"Chao Deng, Li Sun, Ryan Zheng ", director:"Yimou Zhang",summary:"Life and intrigue in an ancient Chinese court.", year: 2018, duration:1.56 )
-  
+    m5.save()
     m5.movies_genres.find_or_create_by(genre: g1)
     m5.movies_genres.find_or_create_by(genre: g2)
     m5.movies_genres.find_or_create_by(genre: g6)
@@ -131,7 +131,7 @@ g10 = Genre.find_or_create_by(name: "Crime")
 
 ## Snowden
     m6 = Movie.find_or_create_by(title: "Snowden", cast:"Joseph Gordon-Levitt, Shailene Woodley, Melissa Leo ", director:"Oliver Stone",summary:"The NSA's illegal surveillance techniques are leaked to the public by one of the agency's employees, Edward Snowden, in the form of thousands of classified documents distributed to the press.", year:2016 , duration:2.14 )
-   
+    m6.save()
     m6.movies_genres.find_or_create_by(genre: g5)
     m6.movies_genres.find_or_create_by(genre: g10)
     m6.movies_genres.find_or_create_by(genre: g6)
@@ -150,7 +150,7 @@ g10 = Genre.find_or_create_by(name: "Crime")
 
 ## Spotlight
     m7 = Movie.find_or_create_by(title: "Spotlight", cast:"Mark Ruffalo, Michael Keaton, Rachel McAdams", director:"Tom McCarthy",summary:"The true story of how the Boston Globe uncovered the massive scandal of child molestation and cover-up within the local Catholic Archdiocese, shaking the entire Catholic Church to its core.", year:2015 , duration:2.09 )
-  
+    m7.save()
     m7.movies_genres.find_or_create_by(genre: g5)
     m7.movies_genres.find_or_create_by(genre: g10)
     m7.movies_genres.find_or_create_by(genre: g6)
@@ -170,7 +170,7 @@ g10 = Genre.find_or_create_by(name: "Crime")
 
 ## The Dark Knight
     m8 = Movie.find_or_create_by(title: "The Dark Knight", cast: "Christian Bale, Heath Ledger, Aaron Eckhart", director:"Christopher Nolan",summary:"When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.", year:2008, duration:2.32 )
-   
+    m8.save()
     m8.movies_genres.find_or_create_by(genre: g1)
     m8.movies_genres.find_or_create_by(genre: g10)
     m8.movies_genres.find_or_create_by(genre: g6)
@@ -190,7 +190,7 @@ g10 = Genre.find_or_create_by(name: "Crime")
 
 ## The Departed
     m9 = Movie.find_or_create_by(title: "The Departed", cast:"Leonardo DiCaprio, Matt Damon, Jack Nicholson", director:"Martin Scorsese",summary:"An undercover cop and a mole in the police attempt to identify each other while infiltrating an Irish gang in South Boston.", year: 2006 , duration:2.31 )
-   
+    m9.save()
     m9.movies_genres.find_or_create_by(genre: g10)
     m9.movies_genres.find_or_create_by(genre: g6)
     m9.movies_genres.find_or_create_by(genre: g4)
@@ -210,7 +210,7 @@ g10 = Genre.find_or_create_by(name: "Crime")
 
 ## The Irishman
     m10 = Movie.find_or_create_by(title: "The Irishman", cast:"Robert De Niro, Al Pacino, Joe Pesci", director:"Martin Scorsese",summary:"An old man recalls his time painting houses for his friend, Jimmy Hoffa, through the 1950-70s.", year: 2019 , duration: 3.29)
-  
+    m10.save()
     m10.movies_genres.find_or_create_by(genre: g5)
     m10.movies_genres.find_or_create_by(genre: g10)
     m10.movies_genres.find_or_create_by(genre: g6)
@@ -230,7 +230,7 @@ g10 = Genre.find_or_create_by(name: "Crime")
 
 ## War Dogs
     m11 = Movie.find_or_create_by(title: "War Dogs", cast:"Jonah Hill, Miles Teller, Steve Lantz", director:"Todd Phillips",summary:"Loosely based on the true story of two young men, David Packouz and Efraim Diveroli, who won a three hundred million dollar contract from the Pentagon to arm America's allies in Afghanistan.", year: 2016 , duration:1.54 )
-   
+    m11.save()
     m11.movies_genres.find_or_create_by(genre: g5)
     m11.movies_genres.find_or_create_by(genre: g7)
     m11.movies_genres.find_or_create_by(genre: g10)
