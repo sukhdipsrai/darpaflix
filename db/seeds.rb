@@ -14,29 +14,31 @@ User.create( email: "jack", password: "daniels")
 # Genre.delete_all()
 
 #  Make Genres
-g1 = Genre.create(name: "Action")
-g2 = Genre.create(name: "Adventure")
-g3 = Genre.create(name: "Comic Book")
-g4 = Genre.create(name: "Thriller")
-g5 = Genre.create(name: "Biography")
-g6 = Genre.create(name: "Drama")
-g7 = Genre.create(name: "Comedy")
-g8 = Genre.create(name: "Superhero")
-g9 = Genre.create(name: "Animation")
-g10 = Genre.create(name: "Crime")
+g1 = Genre.first_or_create(name: "Action")
+g2 = Genre.first_or_create(name: "Adventure")
+g3 = Genre.first_or_create(name: "Comic Book")
+g4 = Genre.first_or_create(name: "Thriller")
+g5 = Genre.first_or_create(name: "Biography")
+g6 = Genre.first_or_create(name: "Drama")
+g7 = Genre.first_or_create(name: "Comedy")
+g8 = Genre.first_or_create(name: "Superhero")
+g9 = Genre.first_or_create(name: "Animation")
+g10 = Genre.first_or_create(name: "Crime")
+
+
 
 ## BatmanBegins
 picture = open('https://darpaflix-pro.s3.us-east-2.amazonaws.com/BatmanBeginsImage.webp')
 trailer = open('https://darpaflix-pro.s3.us-east-2.amazonaws.com/BatmanBeginsTrailer.mp4')
 media = trailer
 begin
-    m1 = Movie.create(title: "Batman Begins", cast:"Christian Bale, Liam Neeson, Micheal Caine", director:"Christopher Nolan",summary:"After training with his mentor, Batman begins his fight to free crime-ridden Gotham City from corruption.", year: 2005, duration: 2.20)
+    m1 = Movie.first_or_create(title: "Batman Begins", cast:"Christian Bale, Liam Neeson, Micheal Caine", director:"Christopher Nolan",summary:"After training with his mentor, Batman begins his fight to free crime-ridden Gotham City from corruption.", year: 2005, duration: 2.20)
 
-    m1.movies_genres.create(genre: g1)
-    m1.movies_genres.create(genre: g2)
-    m1.movies_genres.create(genre: g3)
-    m1.movies_genres.create(genre: g4)
-    m1.movies_genres.create(genre: g8)
+    m1.movies_genres.first_or_create(genre: g1)
+    m1.movies_genres.first_or_create(genre: g2)
+    m1.movies_genres.first_or_create(genre: g3)
+    m1.movies_genres.first_or_create(genre: g4)
+    m1.movies_genres.first_or_create(genre: g8)
 
 
     m1.picture.attach(io: picture, filename: 'BatmanBeginsImage.webp')
