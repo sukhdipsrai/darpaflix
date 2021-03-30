@@ -99,43 +99,46 @@ class MediaTile extends React.Component {
     let buttonContent = null;
     let videoContent = null;
     let entireModal = null;
-    let listButton = "+";
-    if (this.state.listed) listButton = "-";
+    let listButton = window.plus;
+    let volumeButton = window.volume;
+    if (this.props.muted) volumeButton = window.mute;
+
+    if (this.state.listed) listButton = window.checked;
     buttonContent = (
       <div className="media-tile-button-container">
         {/* play */}
         <button
-          className="media-button"
+          className="media-image-button"
           type="button"
           onClick={() => this.fullScreen()}
         >
-          &#9658;
+          <img src={window.play} alt="" />{" "}
         </button>
         {/* add to list */}
         <button
-          className="media-button"
-          type="button"
+          className="media-image-button"
+          type="image"
           onClick={() => this.listHandler()}
         >
-          {listButton}
+          <img src={listButton} alt="" />
         </button>
         {/* show super modal */}
         <button
-          className="media-button"
+          className="media-image-button chevron"
           onClick={() => {
             this.superModal();
           }}
         >
-          ^
+          <img src={window.chevron} alt="" />
         </button>
         <button
-          className="media-button"
+          className="media-image-button volume"
           type="button"
           onClick={() => {
             this.muteHandler();
           }}
         >
-          &#9732;
+          <img src={volumeButton} alt="" />
         </button>
       </div>
     );
@@ -178,28 +181,28 @@ class MediaTile extends React.Component {
         <div className="super-modal-detail">
           {/* play */}
           <button
-            className="media-button"
+            className="media-image-button modal"
             type="button"
             onClick={() => this.fullScreen()}
           >
-            &#9658;
+            <img src={window.play} alt="" />{" "}
           </button>
           {/* add to list */}
           <button
-            className="media-button"
-            type="button"
+            className="media-image-button modal"
+            type="image"
             onClick={() => this.listHandler()}
           >
-            {listButton}
+            <img src={listButton} alt="" />
           </button>
           <button
-            className="media-button"
+            className="media-image-button volume modal"
             type="button"
             onClick={() => {
               this.muteHandler();
             }}
           >
-            &#9732;
+            <img src={volumeButton} alt="" />
           </button>
           <div className="details-left">
             <p>
@@ -226,7 +229,7 @@ class MediaTile extends React.Component {
       entireModal = (
         <div className="super-modal">
           <button
-            className="media-button super-modal-button"
+            className="media-image-button super-modal-button"
             onClick={() => {
               this.setState({ trailerMode: false, superModal: false });
               document.getElementById(this.props.id).children[0].style.display =
@@ -234,7 +237,7 @@ class MediaTile extends React.Component {
               //   document.getElementById(this.props.id).style.display = "none";
             }}
           >
-            {"X"}
+            <img src={window.cancel} alt="" />
           </button>
           {superModal}
           {videoContent}
