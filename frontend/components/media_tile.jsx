@@ -204,25 +204,27 @@ class MediaTile extends React.Component {
           >
             <img src={volumeButton} alt="" />
           </button>
-          <div className="details-left">
-            <p>
-              {title +
-                " (" +
-                year +
-                ") " +
-                `${Math.floor(duration % 10)}h ${Math.floor(
-                  (duration % 1) * 10
-                )}m`}{" "}
-            </p>
-            <p>{summary}</p>
-            <p></p>
-          </div>
+          <div className="details-container">
+            <div className="details-left">
+              <p>
+                {title +
+                  " (" +
+                  year +
+                  ") " +
+                  `${Math.floor(duration % 10)}h ${Math.floor(
+                    (duration % 1) * 10
+                  )}m`}{" "}
+              </p>
+              <p>{summary}</p>
+              <p></p>
+            </div>
 
-          <div className="details-right">
-            <p>{"Cast: " + cast}</p>
+            <div className="details-right">
+              <p>{"Cast: " + cast}</p>
 
-            <p>{"Director: " + director}</p>
-            <p>{"Genres: " + genres.map((g) => g.name).join(" , ")}</p>
+              <p>{"Director: " + director}</p>
+              <p>{"Genres: " + genres.map((g) => g.name).join(" , ")}</p>
+            </div>
           </div>
         </div>
       );

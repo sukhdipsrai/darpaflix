@@ -142,6 +142,20 @@
   width: 60vw;
   transform: translateY(-10%);
   font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+
+  font-size: 14px;
+  .details-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-auto-flow: row dense;
+    justify-content: center;
+    margin: 5%;
+    transform: translateY(-30%);
+  }
+  .details-right,
+  .details-left {
+    margin: 5%;
+  }
 }
 #super-modal-background {
   position: absolute; /* Sit on top of the page content */
