@@ -93,8 +93,8 @@ class MediaTile extends React.Component {
     this.modalClass = "modal";
     if (this.props.first) this.modalClass = "modal-first";
     else if (this.props.last) this.modalClass = "modal-last";
-    // let displayContent = <img src={this.props.data.imageUrl}></img>;
-    let displayContent = <img src={window.devImageUrl}></img>;
+    let displayContent = <img src={this.props.data.imageUrl}></img>;
+    // let displayContent = <img src={window.devImageUrl}></img>;
     let superModal = null;
     let buttonContent = null;
     let videoContent = null;
@@ -147,8 +147,8 @@ class MediaTile extends React.Component {
         <div>
           <video
             className="media-video"
-            // src={this.props.data.trailerUrl}
-            src={window.devVideoUrl}
+            src={this.props.data.trailerUrl}
+            // src={window.devVideoUrl}
             autoPlay
             type="video/mp4"
             muted={this.props.muted}
@@ -161,8 +161,8 @@ class MediaTile extends React.Component {
       superModal = (
         <video
           className="super-media-video"
-          // src={this.props.data.trailerUrl}
-          src={window.devVideoUrl}
+          src={this.props.data.trailerUrl}
+          // src={window.devVideoUrl}
           autoPlay
           muted={this.props.muted}
           type="video/mp4"

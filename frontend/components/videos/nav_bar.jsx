@@ -27,7 +27,7 @@ class NavBar extends React.Component {
     if (e.key === "Enter") {
       this.setState({ query: e.target.value });
       if (e.target.value.length > 0) this.props.updateQuery(e.target.value);
-      console.log(e.target.value);
+      // console.log(e.target.value);
     }
   }
 
