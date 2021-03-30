@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require 'open-uri'
+
 User.create( email: "jack", password: "daniels")
 # MoviesGenre.delete_all()
 # Movie.delete_all()
@@ -24,8 +26,8 @@ g9 = Genre.create(name: "Animation")
 g10 = Genre.create(name: "Crime")
 
 ## BatmanBegins
-picture = File.open('../data/BatmanBegins/BatmanBeginsImage.webp')
-trailer = File.open('../data/BatmanBegins/BatmanBeginsTrailer.mp4')
+picture = open('https://darpaflix-pro.s3.us-east-2.amazonaws.com/BatmanBeginsImage.webp')
+trailer = open('https://darpaflix-pro.s3.us-east-2.amazonaws.com/BatmanBeginsTrailer.mp4')
 media = trailer
 begin
     m1 = Movie.create(title: "Batman Begins", cast:"Christian Bale, Liam Neeson, Micheal Caine", director:"Christopher Nolan",summary:"After training with his mentor, Batman begins his fight to free crime-ridden Gotham City from corruption.", year: 2005, duration: 2.20)
@@ -52,8 +54,8 @@ end
 
 
 ## FreeStateOfJones
-picture = File.open('../data/FreeStateOfJones/FreeStateOfJonesImage.webp')
-trailer = File.open('../data/FreeStateOfJones/FreeStateOfJonesTrailer.mp4')
+picture = File.open('https://darpaflix-pro.s3.us-east-2.amazonaws.com/FreeStateOfJonesImage.webp')
+trailer = File.open('https://darpaflix-pro.s3.us-east-2.amazonaws.com/FreeStateOfJonesTrailer.mp4')
 media = trailer
 begin
     m2 = Movie.create!(title: "Free State of Jones", cast:"Matthew McConaughey, Gugu Mbatha-Raw, Mahershala Ali", director:"Gary Ross",summary:"A disillusioned Confederate army deserter returns to Mississippi and leads a militia of fellow deserters and women in an uprising against the corrupt local Confederate government.", year: 2016, duration: 2.20)
@@ -76,8 +78,8 @@ end
 
 
 ## Mank
-picture = File.open('../data/Mank/MankImage.webp')
-trailer = File.open('../data/Mank/MankTrailer.mp4')
+picture = File.open('https://darpaflix-pro.s3.us-east-2.amazonaws.com/MankImage.webp')
+trailer = File.open('https://darpaflix-pro.s3.us-east-2.amazonaws.com/MankTrailer.mp4')
 media = trailer
 begin
     m3 = Movie.create(title: "Mank", cast:"Gary Oldman, Amanda Seyfried, Lily Collins", director:"David Fincher",summary:"1930's Hollywood is reevaluated through the eyes of scathing social critic and alcoholic screenwriter Herman J. Mankiewicz as he races to finish the screenplay of Citizen Kane (1941).", year: 2020, duration: 2.11)
@@ -101,8 +103,8 @@ end
 
 
 ## Peppermint
-picture = File.open('../data/Peppermint/PeppermintImage.webp')
-trailer = File.open('../data/Peppermint/PeppermintTrailer.mp4')
+picture = File.open('https://darpaflix-pro.s3.us-east-2.amazonaws.com/PeppermintImage.webp')
+trailer = File.open('https://darpaflix-pro.s3.us-east-2.amazonaws.com/PeppermintTrailer.mp4')
 media = trailer
 begin
     m3 = Movie.create(title: "Peppermint", cast:"Jennifer Garner, John Gallagher Jr., John Ortiz", director:"Pierre Morel",summary:"Five years after her husband and daughter are killed in a senseless act of violence, a woman comes back from self-imposed exile to seek revenge against those responsible and the system that let them go free.", year: 2018, duration: 1.41)
@@ -126,8 +128,8 @@ end
 
 
 ## Rango
-picture = File.open('../data/Rango/RangoImage.webp')
-trailer = File.open('../data/Rango/RangoTrailer.mp4')
+picture = File.open('https://darpaflix-pro.s3.us-east-2.amazonaws.com/RangoImage.webp')
+trailer = File.open('https://darpaflix-pro.s3.us-east-2.amazonaws.com/RangoTrailer.mp4')
 media = trailer
 begin
     
@@ -150,8 +152,8 @@ end
 
 
 ## Shadow
-picture = File.open('../data/Shadow/ShadowImage.webp')
-trailer = File.open('../data/Shadow/ShadowTrailer.mp4')
+picture = File.open('https://darpaflix-pro.s3.us-east-2.amazonaws.com/ShadowImage.webp')
+trailer = File.open('https://darpaflix-pro.s3.us-east-2.amazonaws.com/ShadowTrailer.mp4')
 media = trailer
 begin
     
@@ -174,8 +176,8 @@ end
 
 
 ## Snowden
-picture = File.open('../data/Snowden/SnowdenImage.jpg')
-trailer = File.open('../data/Snowden/SnowdenTrailer.mp4')
+picture = File.open('https://darpaflix-pro.s3.us-east-2.amazonaws.com/SnowdenImage.jpg')
+trailer = File.open('https://darpaflix-pro.s3.us-east-2.amazonaws.com/SnowdenTrailer.mp4')
 media = trailer
 begin
     
@@ -196,8 +198,8 @@ end
 #
 
 ## Spotlight
-picture = File.open('../data/Spotlight/SpotlightImage.webp')
-trailer = File.open('../data/Spotlight/SpotlightTrailer.mp4')
+picture = File.open('https://darpaflix-pro.s3.us-east-2.amazonaws.com/SpotlightImage.webp')
+trailer = File.open('https://darpaflix-pro.s3.us-east-2.amazonaws.com/SpotlightTrailer.mp4')
 media = trailer
 begin
     m7 = Movie.create(title: "Spotlight", cast:"Mark Ruffalo, Michael Keaton, Rachel McAdams", director:"Tom McCarthy",summary:"The true story of how the Boston Globe uncovered the massive scandal of child molestation and cover-up within the local Catholic Archdiocese, shaking the entire Catholic Church to its core.", year:2015 , duration:2.09 )
@@ -220,8 +222,8 @@ end
 
 
 ## The Dark Knight
-picture = File.open('../data/TheDarkKnight/TheDarkKnightImage.jpg')
-trailer = File.open('../data/TheDarkKnight/TheDarkKnightTrailer.mp4')
+picture = File.open('https://darpaflix-pro.s3.us-east-2.amazonaws.com/TheDarkKnightImage.jpg')
+trailer = File.open('https://darpaflix-pro.s3.us-east-2.amazonaws.com/TheDarkKnightTrailer.mp4')
 media = trailer
 begin
     m8 = Movie.create(title: "The Dark Knight", cast: "Christian Bale, Heath Ledger, Aaron Eckhart", director:"Christopher Nolan",summary:"When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.", year:2008, duration:2.32 )
@@ -244,8 +246,8 @@ end
 
 
 ## The Departed
-picture = File.open('../data/TheDeparted/TheDepartedImage.jpg')
-trailer = File.open('../data/TheDeparted/TheDepartedTrailer.mp4')
+picture = File.open('https://darpaflix-pro.s3.us-east-2.amazonaws.com/TheDepartedImage.jpg')
+trailer = File.open('https://darpaflix-pro.s3.us-east-2.amazonaws.com/TheDepartedTrailer.mp4')
 media = trailer
 begin
     m9 = Movie.create(title: "The Departed", cast:"Leonardo DiCaprio, Matt Damon, Jack Nicholson", director:"Martin Scorsese",summary:"An undercover cop and a mole in the police attempt to identify each other while infiltrating an Irish gang in South Boston.", year: 2006 , duration:2.31 )
@@ -268,8 +270,8 @@ end
 
 
 ## The Irishman
-picture = File.open('../data/TheIrishman/TheIrishmanImage.webp')
-trailer = File.open('../data/TheIrishman/TheIrishmanTrailer.mp4')
+picture = File.open('https://darpaflix-pro.s3.us-east-2.amazonaws.com/TheIrishmanImage.webp')
+trailer = File.open('https://darpaflix-pro.s3.us-east-2.amazonaws.com/TheIrishmanTrailer.mp4')
 media = trailer
 begin
     m10 = Movie.create(title: "The Irishman", cast:"Robert De Niro, Al Pacino, Joe Pesci", director:"Martin Scorsese",summary:"An old man recalls his time painting houses for his friend, Jimmy Hoffa, through the 1950-70s.", year: 2019 , duration: 3.29)
@@ -292,8 +294,8 @@ end
 
 
 ## War Dogs
-picture = File.open('../data/WarDogs/WarDogsImage.webp')
-trailer = File.open('../data/WarDogs/WarDogsTrailer.mp4')
+picture = File.open('https://darpaflix-pro.s3.us-east-2.amazonaws.com/WarDogsImage.webp')
+trailer = File.open('https://darpaflix-pro.s3.us-east-2.amazonaws.com/WarDogsTrailer.mp4')
 media = trailer
 begin
     m11 = Movie.create(title: "War Dogs", cast:"Jonah Hill, Miles Teller, Steve Lantz", director:"",summary:"Loosely based on the true story of two young men, David Packouz and Efraim Diveroli, who won a three hundred million dollar contract from the Pentagon to arm America's allies in Afghanistan.", year: 2016 , duration:1.54 )
