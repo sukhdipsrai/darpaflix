@@ -84,7 +84,7 @@ class MediaTile extends React.Component {
     let video = document
       .getElementById(this.props.id)
       .getElementsByTagName("video")[0];
-    // video.requestFullscreen();
+    video.requestFullscreen();
     video.controls = true;
   }
 
