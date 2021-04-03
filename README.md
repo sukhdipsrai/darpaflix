@@ -25,3 +25,8 @@ https://darpaflix.herokuapp.com/?#/
 
 Run ```bundle install``` then run ```bundle exec rails s```, a local development server will run on ```localhost:3000```.
 Run ```npm start``` in development to run webpack in watch mode.
+
+## Technical Challenges
+ * Integrating AWS in with Active Storage in the backend.
+ * Seemless Triple Modal Design when viewing hover over a media tile and then clicking on it.
+ * Seeding data and working with file size cost and restrictions.
