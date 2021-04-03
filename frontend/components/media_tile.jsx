@@ -25,7 +25,6 @@ class MediaTile extends React.Component {
       document.getElementById(this.props.id).classList.add(this.modalClass);
       this.setState({ trailerMode: true, superModal: false });
       //   this.playVideoListner();
-      // TODO: Force User interaction after homepage launch
     } else if (this.mouseHover)
       setTimeout(() => {
         this.timer += 200;

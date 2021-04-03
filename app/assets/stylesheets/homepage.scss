@@ -5,9 +5,10 @@
   transition: 0.3s;
   // display: inline-block;
   // *display: inline;
-
   border-radius: 3px;
   position: static;
+  display: inline-block;
+  justify-self: center;
 
   .media-video {
     width: 18vw;

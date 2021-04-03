@@ -24,12 +24,17 @@ class NavBar extends React.Component {
   }
 
   handleSearch(e) {
+    console.log("search change happening");
     // console.log(e.target.value);
-    if (e.key === "Enter") {
+    // if (e.key === "Enter") {
+    if (e.target.value.length > 0) {
+      this.props.updateQuery(e.target.value);
       this.setState({ query: e.target.value });
-      if (e.target.value.length > 0) this.props.updateQuery(e.target.value);
-      // console.log(e.target.value);
+    } else {
+      this.setState({ query: "" });
     }
+    // console.log(e.target.value);
+    // }
   }
 
   makeSearch(inputString) {
@@ -79,7 +84,7 @@ class NavBar extends React.Component {
               type="text"
               placeholder="Genres"
               autoComplete="off"
-              onKeyUp={(e) => {
+              onChange={(e) => {
                 this.handleSearch(e);
               }}
               onBlur={() => this.blurSearchIcon()}
