@@ -21,3 +21,7 @@ https://darpaflix.herokuapp.com/?#/
 * Javascript
 * AWS Cloud Storage
 
+## Installation
+
+Run ```bundle install``` then run ```bundle exec rails s```, a local development server will run on ```localhost:3000```.
+Run ```npm start``` in development to run webpack in watch mode.
