@@ -4,7 +4,8 @@
   display: flex;
   margin-bottom: 1%;
   margin-top: 0.5%;
-  a img {
+  height: max-content;
+  #navbar-logo {
     max-width: 150px;
     max-height: 50px;
     min-width: 90px;
@@ -35,13 +36,13 @@
   }
   .left-nav {
     display: flex;
-    width: 50vw;
+    width: 65vw;
     align-items: center;
   }
   .right-nav {
     display: flex;
     position: absolute;
-    right: 5%;
+    right: 3%;
     align-items: center;
 
     .search-icon {

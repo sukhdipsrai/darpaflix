@@ -3,6 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 import HomePageContainer from "../home_page_container";
 import MyListPage from "../mylist_page";
 import SearchPage from "../search_page";
+import SocialLinks from "../social_links";
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -47,7 +48,11 @@ class NavBar extends React.Component {
         <div className="left-nav">
           <Link to="/browse">
             {" "}
-            <img src={window.logoUrl} onClick={() => this.resetQuery()} />
+            <img
+              id="navbar-logo"
+              src={window.logoUrl}
+              onClick={() => this.resetQuery()}
+            />
           </Link>
           <Link
             className="navbar-links"
@@ -92,6 +97,7 @@ class NavBar extends React.Component {
           >
             Logout
           </button>
+          <SocialLinks />
         </div>
         {displayContent}
       </div>

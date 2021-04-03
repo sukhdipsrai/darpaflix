@@ -18,6 +18,6 @@ export const removeUserList = (data) => (dispatch) => {
 
 export const addUserList = (data) => (dispatch) => {
   return API.addToList(data).then((success) => {
-    dispatch(getUserList(success));
+    dispatch(getUserList(data.id));
   });
 };
