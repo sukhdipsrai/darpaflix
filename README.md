@@ -1,6 +1,6 @@
 # Darpaflix
 
-This website application is designed for users to watch and enjoy content online.
+Designed as a Netflix Web Application Clone, for users to watch and enjoy content online.
 
 https://darpaflix.herokuapp.com/?#/
 
