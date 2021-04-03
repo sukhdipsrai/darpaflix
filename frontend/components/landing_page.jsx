@@ -54,7 +54,7 @@ class LandingPage extends React.Component {
 
         <div className="card2">
           <ul>
-            Skills
+            Stack
             <li>Ruby</li>
             <li>Rails</li>
             <li>JavaScript</li>
