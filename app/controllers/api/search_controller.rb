@@ -14,6 +14,7 @@ class Api::SearchController < ApplicationController
                 if(match.include?(genre.name))
                     matches_movies << movie;
                     break;
+                    # Check against cast, title
                 end
             end
         end

@@ -14,7 +14,7 @@ class SearchPage extends React.Component {
   componentDidMount() {
     this.props.getUserList(this.props.user.id).then((success) => {
       this.setState({ list: success.list });
-      console.log(success.list);
+      // console.log(success.list);
     });
   }
 

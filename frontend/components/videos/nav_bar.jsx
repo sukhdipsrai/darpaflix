@@ -24,7 +24,7 @@ class NavBar extends React.Component {
   }
 
   handleSearch(e) {
-    console.log("search change happening");
+    // console.log("search change happening");
     // console.log(e.target.value);
     // if (e.key === "Enter") {
     if (e.target.value.length > 0) {
