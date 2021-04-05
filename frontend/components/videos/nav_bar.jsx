@@ -87,6 +87,9 @@ class NavBar extends React.Component {
               onChange={(e) => {
                 this.handleSearch(e);
               }}
+              onFocus={(e) => {
+                this.handleSearch(e);
+              }}
               onBlur={() => this.blurSearchIcon()}
             />
             <img
